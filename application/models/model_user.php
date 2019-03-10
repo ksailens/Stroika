@@ -298,17 +298,17 @@ class model_user extends Model
 		$a9=$_POST['Material_coin'];
 		$a10=$_POST['Material_Subtype'];
 
-	$uploaddir = './photo/Material/';
-	$uploaddir2 = '/photo/Material/';
+        $uploaddir = './photo/Material/';
+        $uploaddir2 = '/photo/Material/';
 
-	$uploadfile = $uploaddir . basename($_FILES['filename_photo1']['name']);
-	$uploadfile2 = $uploaddir2 . basename($_FILES['filename_photo1']['name']);
-	
-	$uploadfile3 = $uploaddir . basename($_FILES['filename_photo2']['name']);
-	$uploadfile4 = $uploaddir2 . basename($_FILES['filename_photo2']['name']);
-	
-	$uploadfile5 = $uploaddir . basename($_FILES['filename_photo3']['name']);
-	$uploadfile6 = $uploaddir2 . basename($_FILES['filename_photo3']['name']);
+        $uploadfile = $uploaddir . basename($_FILES['filename_photo1']['name']);
+        $uploadfile2 = $uploaddir2 . basename($_FILES['filename_photo1']['name']);
+
+        $uploadfile3 = $uploaddir . basename($_FILES['filename_photo2']['name']);
+        $uploadfile4 = $uploaddir2 . basename($_FILES['filename_photo2']['name']);
+
+        $uploadfile5 = $uploaddir . basename($_FILES['filename_photo3']['name']);
+        $uploadfile6 = $uploaddir2 . basename($_FILES['filename_photo3']['name']);
 		
 		if (!empty($_FILES['filename_photo1']['name'])) {
 			copy($_FILES['filename_photo1']['tmp_name'], $uploadfile);
