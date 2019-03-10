@@ -2,7 +2,7 @@
 
 
 <?php
-User_Function::mebels_info($data);
+User_Function::materials_info($data);
 ?>
 
 

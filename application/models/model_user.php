@@ -152,28 +152,28 @@ class model_user extends Model
 		}
 	}
 
-	function action_mebel_add(){
+	function action_material_add(){
 
 	}
 
 
-	function action_New_Mebel_Add()
+	function action_New_Material_Add()
 	{	
 		if ($_SESSION["Login"]=="Admin") {
 		$db=Db::getConnection();	
-		$a1=$_POST['Mebel_nazv'];
-		$a2=$_POST['Mebel_nalich'];
-		$a3=$_POST['Mebel_country'];
-		$a4=$_POST['Mebel_colour'];
-		$a5=$_POST['Mebel_material'];
-		$a6=$_POST['Mebel_opis'];
+		$a1=$_POST['Material_nazv'];
+		$a2=$_POST['Material_nalich'];
+		$a3=$_POST['Material_country'];
+		$a4=$_POST['Material_colour'];
+		$a5=$_POST['Material_material'];
+		$a6=$_POST['Material_opis'];
 		$a7=$_SESSION['Login'];
-		$a8=$_POST['Mebel_korpus'];
-		$a9=$_POST['Mebel_coin'];
-		$a10=$_POST['Mebel_Subtype'];
+		$a8=$_POST['Material_korpus'];
+		$a9=$_POST['Material_coin'];
+		$a10=$_POST['Material_Subtype'];
 
-	$uploaddir = './photo/Mebel/';
-	$uploaddir2 = '/photo/Mebel/';
+	$uploaddir = './photo/Material/';
+	$uploaddir2 = '/photo/Material/';
 	$uploadfile = $uploaddir . basename($_FILES['filename']['name']);
 	$uploadfile2 = $uploaddir2 . basename($_FILES['filename']['name']);
 		
@@ -190,7 +190,7 @@ class model_user extends Model
 	}
 
 
-	function action_delete_mebel($num)
+	function action_delete_material($num)
 	{	
 		if ($_SESSION["Login"]=="Admin") {
 			$db=Db::getConnection();
@@ -271,7 +271,7 @@ class model_user extends Model
 
 
 
-	function action_correct_mebels($num)
+	function action_correct_materials($num)
 	{
 		if ($_SESSION["Login"]=="Admin") {
 			$db=Db::getConnection();
@@ -283,23 +283,23 @@ class model_user extends Model
 	}
 
 
-	function action_New_mebel_Update($num)
+	function action_New_material_Update($num)
 	{	
 		if ($_SESSION["Login"]=="Admin") {
 		$db=Db::getConnection();	
-		$a1=$_POST['Mebel_nazv'];
-		$a2=$_POST['Mebel_nalich'];
-		$a3=$_POST['Mebel_country'];
-		$a4=$_POST['Mebel_colour'];
-		$a5=$_POST['Mebel_material'];
-		$a6=$_POST['Mebel_opis'];
+		$a1=$_POST['Material_nazv'];
+		$a2=$_POST['Material_nalich'];
+		$a3=$_POST['Material_country'];
+		$a4=$_POST['Material_colour'];
+		$a5=$_POST['Material_material'];
+		$a6=$_POST['Material_opis'];
 		$a7=$_SESSION['Login'];
-		$a8=$_POST['Mebel_korpus'];
-		$a9=$_POST['Mebel_coin'];
-		$a10=$_POST['Mebel_Subtype'];
+		$a8=$_POST['Material_korpus'];
+		$a9=$_POST['Material_coin'];
+		$a10=$_POST['Material_Subtype'];
 
-	$uploaddir = './photo/Mebel/';
-	$uploaddir2 = '/photo/Mebel/';
+	$uploaddir = './photo/Material/';
+	$uploaddir2 = '/photo/Material/';
 
 	$uploadfile = $uploaddir . basename($_FILES['filename_photo1']['name']);
 	$uploadfile2 = $uploaddir2 . basename($_FILES['filename_photo1']['name']);

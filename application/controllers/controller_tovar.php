@@ -10,7 +10,7 @@ class Controller_tovar extends Controller
 
 	function action_info($rezult)
 	{	
-	$this->view->generate('mebels_info.php', 'template_view.php',$rezult);
+	$this->view->generate('materials_info.php', 'template_view.php',$rezult);
 	}
 
 	function action_chair($rezult)

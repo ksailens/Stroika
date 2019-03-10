@@ -1,7 +1,7 @@
 <div class="Content_block">
 
 <?php
-User_Function::Admin_buy_mebel($data);
+User_Function::Admin_buy_material($data);
 ?>
 
 

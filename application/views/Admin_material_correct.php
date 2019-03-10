@@ -1,7 +1,7 @@
 <div class="Content_block">
 
 <?php
-User_Function::Admin_mebel_Correct($data);
+User_Function::Admin_material_Correct($data);
 ?>
 
 

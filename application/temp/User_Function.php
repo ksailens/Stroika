@@ -42,7 +42,7 @@ echo '</tr>';
 
 
 
-public static function User_buy_mebel($data){
+public static function User_buy_material($data){
 
 if (isset($_SESSION['Login'])) {
 
@@ -313,7 +313,7 @@ require_once 'application/config/Db.php';
 }
 
 
-public static function mebels_info($data){
+public static function materials_info($data){
 	while($res=$data->fetch(PDO::FETCH_BOTH)){
 	echo '<br><h2 align=center>'.$res['Nazv'].'</h2><br><ul>';
 	echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
@@ -583,11 +583,11 @@ if ($_SESSION['Login']=="Admin") {
 	echo '<br><table cellspacing="0">';
 	echo '<tr><th>Название</th><th>Текст</th><th>Наличие</th><th>Страна</th><th>Цвет</th><th>Управление</th></tr>';
 	while($res=$data->fetch(PDO::FETCH_BOTH)){
-	echo '<tr><td>'.$res['Nazv'].'</td><td>'.mb_substr($res['Texts'], 0, 100, 'UTF-8') . '...'.'</td><td>'.$res['Nalich'].'</td><td>'.$res['Country'].'</td><td>'.$res['Colour'].'</td><td>   <a href="/tovar/info/'.$res['id'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/correct_mebels/'.$res['id'].'"> <img src="/photo/red.png" width="25px"></a>    <a href="/user/delete_mebel/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a>   </td></tr>';
+	echo '<tr><td>'.$res['Nazv'].'</td><td>'.mb_substr($res['Texts'], 0, 100, 'UTF-8') . '...'.'</td><td>'.$res['Nalich'].'</td><td>'.$res['Country'].'</td><td>'.$res['Colour'].'</td><td>   <a href="/tovar/info/'.$res['id'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/correct_materials/'.$res['id'].'"> <img src="/photo/red.png" width="25px"></a>    <a href="/user/delete_material/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a>   </td></tr>';
 	}
 
 	echo '</table><br>';
-	echo '<a style="color:black;margin-left:700px;border:1px solid silver;padding: 5px 10px;" href="/user/mebel_add">Добавить товар</a>';
+	echo '<a style="color:black;margin-left:700px;border:1px solid silver;padding: 5px 10px;" href="/user/material_add">Добавить товар</a>';
 	echo '</div>';
 }
 }
@@ -595,7 +595,7 @@ if ($_SESSION['Login']=="Admin") {
 
 
 
-public static function Admin_mebel_Correct($data){
+public static function Admin_material_Correct($data){
 if ($_SESSION['Login']=="Admin") {
 	while($res=$data->fetch(PDO::FETCH_BOTH)){
 	echo '<ul class="Content_block_Menu">';
@@ -609,27 +609,27 @@ if ($_SESSION['Login']=="Admin") {
 
 
 
-	echo '<form action="/user/New_Mebel_Update/'.$res['id'].'" method="POST"  enctype="multipart/form-data">';
+	echo '<form action="/user/New_Material_Update/'.$res['id'].'" method="POST"  enctype="multipart/form-data">';
 	echo '<br><b>Название</b><br>';
-	echo '<input value="'.$res['Nazv'].'" type="text" id="Mebel_nazv" name="Mebel_nazv" size="40">';
+	echo '<input value="'.$res['Nazv'].'" type="text" id="Material_nazv" name="Material_nazv" size="40">';
 
 	echo '<br><br><b>Наличие</b><br>';
-	echo '<input value="'.$res['Nalich'].'" type="text" id="Mebel_nalich" name="Mebel_nalich" size="40">';
+	echo '<input value="'.$res['Nalich'].'" type="text" id="Material_nalich" name="Material_nalich" size="40">';
 
 	echo '<br><br><b>Цена</b><br>';
-	echo '<input value="'.$res['Coin'].'" type="text" id="Mebel_coin" name="Mebel_coin" size="40">';
+	echo '<input value="'.$res['Coin'].'" type="text" id="Material_coin" name="Material_coin" size="40">';
 
 	echo '<br><br><b>Страна</b><br>';
-	echo '<input value="'.$res['Country'].'" type="text" id="Mebel_country" name="Mebel_country" size="40">';
+	echo '<input value="'.$res['Country'].'" type="text" id="Material_country" name="Material_country" size="40">';
 
 	echo '<br><br><b>Цвет</b><br>';
-	echo '<input value="'.$res['Colour'].'" type="text" id="Mebel_colour" name="Mebel_colour" size="40">';
+	echo '<input value="'.$res['Colour'].'" type="text" id="Material_colour" name="Material_colour" size="40">';
 
 	echo '<br><br><b>Материал</b><br>';
-	echo '<input value="'.$res['Material'].'" type="text" id="Mebel_material" name="Mebel_material" size="40"><br><br>';
+	echo '<input value="'.$res['Material'].'" type="text" id="Material_material" name="Material_material" size="40"><br><br>';
 
 	echo '<b>Тип</b><br>';
-	echo '<select style="border:1px solid silver;" id="Mebel_korpus" name="Mebel_korpus">';
+	echo '<select style="border:1px solid silver;" id="Material_korpus" name="Material_korpus">';
 	if ($res['Type']=='1') { echo '<option selected value="1">Инструменты</option>';}else{ echo '<option value="1">Инструменты</option>';}
 	if ($res['Type']=='2') { echo '<option selected value="2">Строй.материалы</option>';}else{ echo '<option value="2">Строй.материалы</option>';}
 	if ($res['Type']=='3') { echo '<option selected value="3">Отделочные мат-лы</option>';}else{ echo '<option value="3">Отделочные мат-лы</option>';}
@@ -639,7 +639,7 @@ if ($_SESSION['Login']=="Admin") {
     echo '</select><br><br>';
 
 	echo '<b>Подтип</b><br>';
-	echo '<select style="border:1px solid silver;" id="Mebel_Subtype" name="Mebel_Subtype">';
+	echo '<select style="border:1px solid silver;" id="Material_Subtype" name="Material_Subtype">';
 	if ($res['Subtype']=='1') { echo '<option selected value="1">Для Гостинной</option>';}else{ echo '<option value="1">Для Гостинной</option>';}
 	if ($res['Subtype']=='2') { echo '<option selected value="2">Для Спальни</option>';}else{ echo '<option value="2">Для Спальни</option>';}
 	if ($res['Subtype']=='3') { echo '<option selected value="3">Для Столовой</option>';}else{ echo '<option value="3">Для Столовой</option>';}
@@ -649,7 +649,7 @@ if ($_SESSION['Login']=="Admin") {
 	echo '</select><br><br>';
 
 	echo '<b>Описание</b><br>';
-	echo '<textarea style="border:1px solid silver;" id="Mebel_opis" name="Mebel_opis" rows="10" cols="85" name="text">'.$res['Texts'].'</textarea><br><br>';
+	echo '<textarea style="border:1px solid silver;" id="Material_opis" name="Material_opis" rows="10" cols="85" name="text">'.$res['Texts'].'</textarea><br><br>';
 
 	echo '<br><table class="dt" cellspacing="0">';
 	echo '<tr><th>Фото 1 </th><th>Фото 2</th><th>Фото 3</th></tr>';
@@ -665,7 +665,7 @@ if ($_SESSION['Login']=="Admin") {
 }
 
 
-public static function Admin_mebel_Add($data){
+public static function Admin_material_Add($data){
 if ($_SESSION['Login']=="Admin") {
 
 	echo '<ul class="Content_block_Menu">';
@@ -678,39 +678,39 @@ if ($_SESSION['Login']=="Admin") {
 	echo '<h2>Новая запись</h2>';
 
 
-	echo '<form action="/user/New_Mebel_add" method="POST"  enctype="multipart/form-data">';
+	echo '<form action="/user/New_Material_add" method="POST"  enctype="multipart/form-data">';
 	echo '<br><b>Название</b><br>';
-	echo '<input type="text" id="Mebel_nazv" name="Mebel_nazv" size="40">';
+	echo '<input type="text" id="Material_nazv" name="Material_nazv" size="40">';
 
 	echo '<br><br><b>Наличие</b><br>';
-	echo '<input type="text" id="Mebel_nalich" name="Mebel_nalich" size="40">';
+	echo '<input type="text" id="Material_nalich" name="Material_nalich" size="40">';
 
 	echo '<br><br><b>Цена</b><br>';
-	echo '<input type="text" id="Mebel_coin" name="Mebel_coin" size="40">';
+	echo '<input type="text" id="Material_coin" name="Material_coin" size="40">';
 
 	echo '<br><br><b>Страна</b><br>';
-	echo '<input type="text" id="Mebel_country" name="Mebel_country" size="40">';
+	echo '<input type="text" id="Material_country" name="Material_country" size="40">';
 
 	echo '<br><br><b>Цвет</b><br>';
-	echo '<input type="text" id="Mebel_colour" name="Mebel_colour" size="40">';
+	echo '<input type="text" id="Material_colour" name="Material_colour" size="40">';
 
 	echo '<br><br><b>Материал</b><br>';
-	echo '<input type="text" id="Mebel_material" name="Mebel_material" size="40"><br><br>';
+	echo '<input type="text" id="Material_material" name="Material_material" size="40"><br><br>';
 
 	echo '<b>Тип</b><br>';
 
-	echo '<select style="border:1px solid silver;" id="Mebel_korpus" name="Mebel_korpus">';
+	echo '<select style="border:1px solid silver;" id="Material_korpus" name="Material_korpus">';
 	echo '<option value="1">Инструменты</option><option value="2">Строй.материалы</option><option value="3">Отделочные м-лы</option><option value="4">Крепежи</option><option value="5">Пиломатериалы</option><option value="6">Другое</option>';
     echo '</select><br><br>';
 
     echo '<b>Подтип</b><br>';
 
-    echo '<select style="border:1px solid silver;" id="Mebel_Subtype" name="Mebel_Subtype">';
+    echo '<select style="border:1px solid silver;" id="Material_Subtype" name="Material_Subtype">';
     echo '<option value="1">Для гостинной</option><option value="2">Для Спальни</option><option value="3">Для Столовой</option><option value="4">Для Ванной</option><option value="5">Для Улицы</option><option value="6">Другое</option>';
     echo '</select><br><br>';
 
 	echo '<b>Описание</b><br>';
-	echo '<textarea style="border:1px solid silver;" id="Mebel_opis" name="Mebel_opis" rows="10" cols="45" name="text"></textarea><br><br>';
+	echo '<textarea style="border:1px solid silver;" id="Material_opis" name="Material_opis" rows="10" cols="45" name="text"></textarea><br><br>';
 
 	echo '<input type="file" name="filename"><br><br>';
 	echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value=Загрузить фото></form>';
@@ -718,7 +718,7 @@ if ($_SESSION['Login']=="Admin") {
 }}
 
 
-public static function Admin_buy_mebel($data){
+public static function Admin_buy_material($data){
 if ($_SESSION['Login']=="Admin") {
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';

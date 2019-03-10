@@ -121,10 +121,10 @@ class Controller_user extends Controller
 			}	
 		}
 
-		function action_Mebel_add()
+		function action_Material_add()
 	{	
 		if ($_SESSION['Login']=="Admin") {
-			$this->view->generate('Admin_mebel_add.php', 'template_view.php');
+			$this->view->generate('Admin_material_add.php', 'template_view.php');
 		}
 		else{
 			header("Location: /avtoriz");	
@@ -132,7 +132,7 @@ class Controller_user extends Controller
 	}
 
 
-			function action_New_Mebel_add()
+			function action_New_Material_add()
 	{	
 		if ($_SESSION['Login']=="Admin") {
 			header("Location: /user/production");
@@ -145,7 +145,7 @@ class Controller_user extends Controller
 
 
 
-		function action_delete_mebel()
+		function action_delete_material()
 	{
 		if ($_SESSION['Login']=="Admin") {
 			header("Location: /user/production");	
@@ -187,10 +187,10 @@ class Controller_user extends Controller
 	}
 
 
-		function action_correct_mebels($zapros)
+		function action_correct_materials($zapros)
 	{
 		if ($_SESSION['Login']=="Admin") {
-			$this->view->generate('Admin_mebel_correct.php', 'template_view.php',$zapros);
+			$this->view->generate('Admin_material_correct.php', 'template_view.php',$zapros);
 		}
 		else{
 			header("Location: /avtoriz");	
@@ -199,7 +199,7 @@ class Controller_user extends Controller
 	}
 
 
-		function action_New_Mebel_Update()
+		function action_New_Material_Update()
 	{
 		if ($_SESSION['Login']=="Admin") {
 			header("Location: /user/production");	
@@ -289,7 +289,7 @@ class Controller_user extends Controller
 		function action_my_buy($rezult)
 	{	
 		if (isset($_SESSION["Login"])) {
-			$this->view->generate('User_buy_mebel.php', 'template_view.php',$rezult);
+			$this->view->generate('User_buy_material.php', 'template_view.php',$rezult);
 		}	
 		else{
 			header("Location: /avtoriz");	
@@ -325,7 +325,7 @@ class Controller_user extends Controller
 		function action_send_buy($rezult)
 	{
 		if ($_SESSION["Login"]=="Admin") {
-			$this->view->generate('Admin_buy_mebel.php', 'template_view.php',$rezult);
+			$this->view->generate('Admin_buy_material.php', 'template_view.php',$rezult);
 		}
 		else{
 			header("Location: /avtoriz");	
