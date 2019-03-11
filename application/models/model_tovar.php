@@ -21,8 +21,7 @@ class model_tovar extends Model
 		return $result;
 	}
 
-
-	function action_chair()
+	function action_instruments()
 	{	
 		$db=Db::getConnection();
 		$str="Select *from Catalog where Type=1";
@@ -31,7 +30,7 @@ class model_tovar extends Model
 		return $result;
 	}
 
-	function action_beds()
+	function action_buildMat()
 	{	
 		$db=Db::getConnection();
 		$str="Select *from Catalog where Type=2";
@@ -40,7 +39,7 @@ class model_tovar extends Model
 		return $result;	
 	}
 
-	function action_sofa()
+	function action_decorMat()
 	{	
 		$db=Db::getConnection();
 		$str="Select *from Catalog where Type=3";
@@ -49,7 +48,7 @@ class model_tovar extends Model
 		return $result;
 	}
 
-	function action_table()
+	function action_fasteners()
 	{	
 		$db=Db::getConnection();
 		$str="Select *from Catalog where Type=4";
@@ -58,7 +57,7 @@ class model_tovar extends Model
 		return $result;
 	}
 
-	function action_closet()
+	function action_lumber()
 	{	
 		$db=Db::getConnection();
 		$str="Select *from Catalog where Type=5";
@@ -77,12 +76,11 @@ class model_tovar extends Model
 	}
 
 
-
     /*Функции для многоуровней иерархии */
 
-    /*Кресла*/
+    /*Инструменты*/
 
-    function action_chair_livingroom()
+    function action_instruments_brushes()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=1 and Subtype=1";
@@ -91,7 +89,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_chair_bedroom()
+    function action_instruments_handsaw()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=1 and Subtype=2";
@@ -100,7 +98,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_chair_diningroom()
+    function action_instruments_drill()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=1 and Subtype=3";
@@ -109,7 +107,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_chair_bathroom()
+    function action_instruments_shovel()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=1 and Subtype=4";
@@ -118,7 +116,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_chair_street()
+    function action_instruments_spatula()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=1 and Subtype=5";
@@ -127,18 +125,9 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_chair_another()
-    {
-        $db=Db::getConnection();
-        $str="Select *from Catalog where Type=1 and Subtype=6";
-        $result=$db->prepare($str);
-        $result->execute();
-        return $result;
-    }
+       /*Строительные материалы*/
 
-    /*Кровати*/
-
-    function action_beds_livingroom()
+    function action_buildMat_cement()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=2 and Subtype=1";
@@ -147,7 +136,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_beds_bedroom()
+    function action_buildMat_sand()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=2 and Subtype=2";
@@ -156,7 +145,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_beds_diningroom()
+    function action_buildMat_gasConcrete()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=2 and Subtype=3";
@@ -165,7 +154,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_beds_bathroom()
+    function action_buildMat_insulation()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=2 and Subtype=4";
@@ -174,7 +163,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_beds_street()
+    function action_buildMat_roof()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=2 and Subtype=5";
@@ -183,18 +172,9 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_beds_another()
-    {
-        $db=Db::getConnection();
-        $str="Select *from Catalog where Type=2 and Subtype=6";
-        $result=$db->prepare($str);
-        $result->execute();
-        return $result;
-    }
+       /*Отделочные материалы*/
 
-    /*Диваны*/
-
-    function action_sofa_livingroom()
+    function action_decorMat_glue()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=3 and Subtype=1";
@@ -203,7 +183,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_sofa_bedroom()
+    function action_decorMat_paint()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=3 and Subtype=2";
@@ -212,7 +192,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_sofa_diningroom()
+    function action_decorMat_sealant()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=3 and Subtype=3";
@@ -221,7 +201,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_sofa_bathroom()
+    function action_decorMat_plumbing()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=3 and Subtype=4";
@@ -230,7 +210,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_sofa_street()
+    function action_decorMat_laminate()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=3 and Subtype=5";
@@ -239,18 +219,9 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_sofa_another()
-    {
-        $db=Db::getConnection();
-        $str="Select *from Catalog where Type=3 and Subtype=6";
-        $result=$db->prepare($str);
-        $result->execute();
-        return $result;
-    }
+       /*Крепежи*/
 
-    /*Столы*/
-
-    function action_table_livingroom()
+    function action_fasteners_screw()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=4 and Subtype=1";
@@ -259,7 +230,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_table_bedroom()
+    function action_fasteners_spike()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=4 and Subtype=2";
@@ -268,7 +239,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_table_diningroom()
+    function action_fasteners_pin()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=4 and Subtype=3";
@@ -277,7 +248,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_table_bathroom()
+    function action_fasteners_nut()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=4 and Subtype=4";
@@ -286,7 +257,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_table_street()
+    function action_fasteners_collar()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=4 and Subtype=5";
@@ -295,18 +266,9 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_table_another()
-    {
-        $db=Db::getConnection();
-        $str="Select *from Catalog where Type=4 and Subtype=6";
-        $result=$db->prepare($str);
-        $result->execute();
-        return $result;
-    }
+    /*Пиломатериалы*/
 
-    /*Шкафы*/
-
-    function action_closet_livingroom()
+    function action_lumber_plank()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=5 and Subtype=1";
@@ -315,7 +277,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_closet_bedroom()
+    function action_lumber_dsp()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=5 and Subtype=2";
@@ -324,7 +286,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_closet_diningroom()
+    function action_lumber_osb()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=5 and Subtype=3";
@@ -333,7 +295,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_closet_bathroom()
+    function action_lumber_plywood()
     {
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=5 and Subtype=4";
@@ -342,26 +304,7 @@ class model_tovar extends Model
         return $result;
     }
 
-    function action_closet_street()
-    {
-        $db=Db::getConnection();
-        $str="Select *from Catalog where Type=5 and Subtype=5";
-        $result=$db->prepare($str);
-        $result->execute();
-        return $result;
-    }
-
-    function action_closet_another()
-    {
-        $db=Db::getConnection();
-        $str="Select *from Catalog where Type=5 and Subtype=6";
-        $result=$db->prepare($str);
-        $result->execute();
-        return $result;
-    }
-
-
-	}
+   	}
 
 
 

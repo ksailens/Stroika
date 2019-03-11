@@ -89,7 +89,7 @@ if ($_SESSION['Login']=="Admin") {
 
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -112,7 +112,7 @@ elseif ($_SESSION['Login']=="Moder") {
 
     echo '<ul class="Content_block_Menu">';
     echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-    echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+    echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
     echo '</ul>';
     echo '<div class="Content_block_Tovar">';
     echo '<h2>Список пользователей</h2>';
@@ -388,7 +388,7 @@ public static function Admin_test_drive($data){
 if ($_SESSION['Login']=="Admin") {
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -430,7 +430,7 @@ if ($_SESSION['Login']=="Admin") {
 	while($res=$data->fetch(PDO::FETCH_BOTH)){
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -441,7 +441,7 @@ if ($_SESSION['Login']=="Admin") {
 	echo '<form action="/user/New_News_Update/'.$res['id'].'" method="POST"  enctype="multipart/form-data">';
 	echo '<br><br><b>Заголовок</b><br>';
 	echo '<input type="text" id="News_zagol1" name="News_zagol1" value="'.$res['Nazv'].'" size="40"><br><br>';
-	echo '<b>Текст новости</b><br>';
+	echo '<b>Текст новости (акции)</b><br>';
 	echo '<textarea style="border:1px solid silver;" id="News_Text1" name="News_Text1" class="tinymce" rows="10" cols="85" name="text">'.$res['Texts'].'</textarea><br><br>';
 	echo '<img height="300px" width="600px" src="'.$res['Photos'].'"><br><br>';
 	echo '<input type="file" name="filename_update1"><br><br>';
@@ -453,7 +453,7 @@ elseif ($_SESSION['Login']=="Moder") {
     while($res=$data->fetch(PDO::FETCH_BOTH)){
         echo '<ul class="Content_block_Menu">';
         echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-        echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+        echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
         echo '</ul>';
         echo '<div class="Content_block_Tovar">';
         echo '<h2>Новая запись</h2>';
@@ -462,7 +462,7 @@ elseif ($_SESSION['Login']=="Moder") {
         echo '<form action="/user/New_News_Update/'.$res['id'].'" method="POST"  enctype="multipart/form-data">';
         echo '<br><br><b>Заголовок</b><br>';
         echo '<input type="text" id="News_zagol1" name="News_zagol1" value="'.$res['Nazv'].'" size="40"><br><br>';
-        echo '<b>Текст новости</b><br>';
+        echo '<b>Текст новости (акции)</b><br>';
         echo '<textarea style="border:1px solid silver;" id="News_Text1" name="News_Text1" class="tinymce" rows="10" cols="85" name="text">'.$res['Texts'].'</textarea><br><br>';
         echo '<img height="300px" width="600px" src="'.$res['Photos'].'"><br><br>';
         echo '<input type="file" name="filename_update1"><br><br>';
@@ -479,7 +479,7 @@ if ($_SESSION['Login']=="Admin") {
 
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -490,7 +490,7 @@ if ($_SESSION['Login']=="Admin") {
 	echo '<form action="/user/New_News_Add" method="POST"  enctype="multipart/form-data">';
 	echo '<br><br><b>Заголовок</b><br>';
 	echo '<input type="text" id="News_zagol" name="News_zagol" size="40"><br><br>';
-	echo '<b>Текст новости</b><br>';
+	echo '<b>Текст новости (акции)</b><br>';
 	echo '<textarea style="border:1px solid silver;" id="News_Text" name="News_Text" class="tinymce" rows="10" cols="85" name="text"></textarea><br><br>';
 	echo '<input type="file" name="filename"><br><br>';
 	echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value=Загрузить фото></form>';
@@ -500,7 +500,7 @@ elseif ($_SESSION['Login']=="Moder") {
 
     echo '<ul class="Content_block_Menu">';
     echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-    echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+    echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
     echo '</ul>';
     echo '<div class="Content_block_Tovar">';
     echo '<h2>Новая запись</h2>';
@@ -509,7 +509,7 @@ elseif ($_SESSION['Login']=="Moder") {
     echo '<form action="/user/New_News_Add" method="POST"  enctype="multipart/form-data">';
     echo '<br><br><b>Заголовок</b><br>';
     echo '<input type="text" id="News_zagol" name="News_zagol" size="40"><br><br>';
-    echo '<b>Текст новости</b><br>';
+    echo '<b>Текст новости (акции)</b><br>';
     echo '<textarea style="border:1px solid silver;" id="News_Text" name="News_Text" class="tinymce" rows="10" cols="85" name="text"></textarea><br><br>';
     echo '<input type="file" name="filename"><br><br>';
     echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value=Загрузить фото></form>';
@@ -523,7 +523,7 @@ if ($_SESSION['Login']=="Admin") {
 
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -547,7 +547,7 @@ elseif ($_SESSION['Login']=="Moder") {
 
     echo '<ul class="Content_block_Menu">';
     echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-    echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+    echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
     echo '</ul>';
     echo '<div class="Content_block_Tovar">';
     echo '<h2>Список новостей</h2>';
@@ -572,7 +572,7 @@ if ($_SESSION['Login']=="Admin") {
 
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -597,10 +597,10 @@ if ($_SESSION['Login']=="Admin") {
 
 public static function Admin_material_Correct($data){
 if ($_SESSION['Login']=="Admin") {
-	while($res=$data->fetch(PDO::FETCH_BOTH)){
+	while($res=$data->fetch(PDO::FETCH_BOTH))   {
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -630,22 +630,54 @@ if ($_SESSION['Login']=="Admin") {
 
 	echo '<b>Тип</b><br>';
 	echo '<select style="border:1px solid silver;" id="Material_korpus" name="Material_korpus">';
-	if ($res['Type']=='1') { echo '<option selected value="1">Инструменты</option>';}else{ echo '<option value="1">Инструменты</option>';}
-	if ($res['Type']=='2') { echo '<option selected value="2">Строй.материалы</option>';}else{ echo '<option value="2">Строй.материалы</option>';}
-	if ($res['Type']=='3') { echo '<option selected value="3">Отделочные мат-лы</option>';}else{ echo '<option value="3">Отделочные мат-лы</option>';}
-	if ($res['Type']=='4') { echo '<option selected value="4">Крепежи</option>';}else{ echo '<option value="4">Крепежи</option>';}
-	if ($res['Type']=='5') { echo '<option selected value="5">Пиломатериалы</option>';}else{ echo '<option value="5">Пиломатериалы</option>';}
-	if ($res['Type']=='6') { echo '<option selected value="6">Другое</option>';}else{ echo '<option value="6">Другое</option>';}
+        if ($res['Type']=='1') { echo '<option selected value="1">Инструменты</option>';}else{ echo '<option value="1">Инструменты</option>';}
+        if ($res['Type']=='2') { echo '<option selected value="2">Строй.материалы</option>';}else{ echo '<option value="2">Строй.материалы</option>';}
+        if ($res['Type']=='3') { echo '<option selected value="3">Отделочные мат-лы</option>';}else{ echo '<option value="3">Отделочные мат-лы</option>';}
+        if ($res['Type']=='4') { echo '<option selected value="4">Крепежи</option>';}else{ echo '<option value="4">Крепежи</option>';}
+        if ($res['Type']=='5') { echo '<option selected value="5">Пиломатериалы</option>';}else{ echo '<option value="5">Пиломатериалы</option>';}
+        if ($res['Type']=='6') { echo '<option selected value="6">Другое</option>';}else{ echo '<option value="6">Другое</option>';}
     echo '</select><br><br>';
 
 	echo '<b>Подтип</b><br>';
 	echo '<select style="border:1px solid silver;" id="Material_Subtype" name="Material_Subtype">';
-	if ($res['Subtype']=='1') { echo '<option selected value="1">Для Гостинной</option>';}else{ echo '<option value="1">Для Гостинной</option>';}
-	if ($res['Subtype']=='2') { echo '<option selected value="2">Для Спальни</option>';}else{ echo '<option value="2">Для Спальни</option>';}
-	if ($res['Subtype']=='3') { echo '<option selected value="3">Для Столовой</option>';}else{ echo '<option value="3">Для Столовой</option>';}
-	if ($res['Subtype']=='4') { echo '<option selected value="4">Для Ванной</option>';}else{ echo '<option value="4">Для Ванной</option>';}
-	if ($res['Subtype']=='5') { echo '<option selected value="5">Для Улицы</option>';}else{ echo '<option value="5">Для Улицы</option>';}
-	if ($res['Subtype']=='6') { echo '<option selected value="6">Другое</option>';}else{ echo '<option value="6">Другое</option>';}
+        if ($res['Type']=='1') {
+            if ($res['Subtype']=='1') { echo '<option selected value="1">Кисти и валики</option>';}else{ echo '<option value="1">Кисти и валики</option>';}
+            if ($res['Subtype']=='2') { echo '<option selected value="2">Ножовки и пилы</option>';}else{ echo '<option value="2">Ножовки и пилы</option>';}
+            if ($res['Subtype']=='3') { echo '<option selected value="3">Буры и сверла</option>';}else{ echo '<option value="3">Буры и сверла</option>';}
+            if ($res['Subtype']=='4') { echo '<option selected value="4">Лопаты</option>';}else{ echo '<option value="4">Лопаты</option>';}
+            if ($res['Subtype']=='5') { echo '<option selected value="5">Шпателя</option>';}else{ echo '<option value="5">Шпателя</option>';}
+        }
+        if ($res['Type']=='2') {
+            if ($res['Subtype']=='1') { echo '<option selected value="1">Цемент и добавки</option>';}else{ echo '<option value="1">Цемент и добавки</option>';}
+            if ($res['Subtype']=='2') { echo '<option selected value="2">Песок и щебень</option>';}else{ echo '<option value="2">Песок и щебень</option>';}
+            if ($res['Subtype']=='3') { echo '<option selected value="3">Газобетон</option>';}else{ echo '<option value="3">Газобетон</option>';}
+            if ($res['Subtype']=='4') { echo '<option selected value="4">Утеплители</option>';}else{ echo '<option value="4">Утеплители</option>';}
+            if ($res['Subtype']=='5') { echo '<option selected value="5">Кровля</option>';}else{ echo '<option value="5">Кровля</option>';}
+        }
+        if ($res['Type']=='3') {
+            if ($res['Subtype']=='1') { echo '<option selected value="1">Клей</option>';}else{ echo '<option value="1">Клей</option>';}
+            if ($res['Subtype']=='2') { echo '<option selected value="2">Краски и лаки</option>';}else{ echo '<option value="2">Краски и лаки</option>';}
+            if ($res['Subtype']=='3') { echo '<option selected value="3">Герметики и пена</option>';}else{ echo '<option value="3">Герметики и пена</option>';}
+            if ($res['Subtype']=='4') { echo '<option selected value="4">Плитка и сантехника</option>';}else{ echo '<option value="4">Плитка и сантехника</option>';}
+            if ($res['Subtype']=='5') { echo '<option selected value="5">Ламинат</option>';}else{ echo '<option value="5">Ламинат</option>';}
+        }
+        if ($res['Type']=='4') {
+            if ($res['Subtype']=='1') { echo '<option selected value="1">Саморезы</option>';}else{ echo '<option value="1">Саморезы</option>';}
+            if ($res['Subtype']=='2') { echo '<option selected value="2">Гвозди</option>';}else{ echo '<option value="2">Гвозди</option>';}
+            if ($res['Subtype']=='3') { echo '<option selected value="3">Шпильки</option>';}else{ echo '<option value="3">Шпильки</option>';}
+            if ($res['Subtype']=='4') { echo '<option selected value="4">Гайки</option>';}else{ echo '<option value="4">Гайки</option>';}
+            if ($res['Subtype']=='5') { echo '<option selected value="5">Шайбы</option>';}else{ echo '<option value="5">Шайбы</option>';}
+        }
+        if ($res['Type']=='5') {
+            if ($res['Subtype']=='1') { echo '<option selected value="1">Брус и доска</option>';}else{ echo '<option value="1">Брус и доска</option>';}
+            if ($res['Subtype']=='2') { echo '<option selected value="2">ДСП и ДВП</option>';}else{ echo '<option value="2">ДСП и ДВП</option>';}
+            if ($res['Subtype']=='3') { echo '<option selected value="3">ОСБ</option>';}else{ echo '<option value="3">ОСБ</option>';}
+            if ($res['Subtype']=='4') { echo '<option selected value="4">Фанера</option>';}else{ echo '<option value="4">Фанера</option>';}
+        }
+        if ($res['Type']=='6') {
+            echo '<option selected value="1">Другое</option>';
+        }
+
 	echo '</select><br><br>';
 
 	echo '<b>Описание</b><br>';
@@ -670,7 +702,7 @@ if ($_SESSION['Login']=="Admin") {
 
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';
@@ -706,7 +738,43 @@ if ($_SESSION['Login']=="Admin") {
     echo '<b>Подтип</b><br>';
 
     echo '<select style="border:1px solid silver;" id="Material_Subtype" name="Material_Subtype">';
-    echo '<option value="1">Для гостинной</option><option value="2">Для Спальни</option><option value="3">Для Столовой</option><option value="4">Для Ванной</option><option value="5">Для Улицы</option><option value="6">Другое</option>';
+    echo '<optgroup label="Инструменты">';
+        echo '<option value="1">Кисти и валики</option>';
+        echo '<option value="2">Ножовки и пилы</option>';
+        echo '<option value="3">Буры и сверла</option>';
+        echo '<option value="4">Лопаты</option>';
+        echo '<option value="5">Шпателя</option>';
+    echo '</optgroup>';
+    echo '<optgroup label="Строй.материалы">';
+        echo '<option value="1">Цемент и добавки</option>';
+        echo '<option value="2">Песок и щебень</option>';
+        echo '<option value="3">Газобетон</option>';
+        echo '<option value="4">Утеплители</option>';
+        echo '<option value="5">Кровля</option>';
+    echo '</optgroup>';
+    echo '<optgroup label="Отделочные м-лы">';
+        echo '<option value="1">Клей</option>';
+        echo '<option value="2">Краски и лаки</option>';
+        echo '<option value="3">Герметики и пен</option>';
+        echo '<option value="4">Плитка и сантехника</option>';
+        echo '<option value="5">Ламинат</option>';
+    echo '</optgroup>';
+    echo '<optgroup label="Крепежи">';
+        echo '<option value="1">Саморезы</option>';
+        echo '<option value="2">Гвозди</option>';
+        echo '<option value="3">Шпильки</option>';
+        echo '<option value="4">Гайки</option>';
+        echo '<option value="5">Шайбы</option>';
+    echo '</optgroup>';
+    echo '<optgroup label="Пиломатериалы">';
+        echo '<option value="1">Брус и доска</option>';
+        echo '<option value="2">ДСП и ДВП</option>';
+        echo '<option value="3">ОСБ</option>';
+        echo '<option value="4">Фанера</option>';
+    echo '</optgroup>';
+    echo '<optgroup label="Другое">';
+        echo '<option value="1">Другое</option>';
+    echo '</optgroup>';
     echo '</select><br><br>';
 
 	echo '<b>Описание</b><br>';
@@ -722,7 +790,7 @@ public static function Admin_buy_material($data){
 if ($_SESSION['Login']=="Admin") {
 	echo '<ul class="Content_block_Menu">';
 	echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
-	echo '<li><a href="/user/news">НОВОСТИ</a></li>';
+	echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
 	echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
 	echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
 	echo '</ul>';

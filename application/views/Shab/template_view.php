@@ -71,7 +71,7 @@ function googleTranslateElementInit() {
 </div>
 <ul class="Main_Menu">
 		<li><a href="/index">ГЛАВНАЯ СТРАНИЦА</a></li>
-		<li><a href="/news">НОВОСТИ</a></li>
+		<li><a href="/news">НОВОСТИ И АКЦИИ</a></li>
 		<li><a href="/tovar">КАТАЛОГ НАШЕЙ ПРОДУКЦИИ</a></li>
 		<li><a href="/kont">СВЯЖИТЕСЬ С НАМИ</a></li>
 		<li><a href="/map">СХЕМА ПРОЕЗДА</a></li>

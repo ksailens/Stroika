@@ -10,7 +10,7 @@
 		<div><a href="/tovar/other">1.6. Другое</a></div>
 	</li>
 
-	<li><a href="/news">2.Новости</a></li>
+	<li><a href="/news">2.Новости и акции</a></li>
 
 	<li><a href="/tovar">3.Каталог</a></li>
 
@@ -21,7 +21,7 @@
 	<li><a href="/avtoriz">6.Личный кабинет</a>
 		<div><p>Меню администратора</p></div>
 		<div><a href="/user/all">6.1.1. Список пользователей</a></div>
-		<div><a href="/user/news">6.1.2. Новости</a></div>
+		<div><a href="/user/news">6.1.2. Новости и акции</a></div>
 		<div><a href="/user/send_buy">6.1.3. Заявки на покупку</a></div>
 		<div><a href="/user/production">6.1.4. Каталог продукции</a></div>
 		<div><p>Меню пользователя</p></div>

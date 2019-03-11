@@ -13,27 +13,27 @@ class Controller_tovar extends Controller
 	$this->view->generate('materials_info.php', 'template_view.php',$rezult);
 	}
 
-	function action_chair($rezult)
+	function action_instruments($rezult)
 	{	
 	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
 	}
 
-	function action_beds($rezult)
+	function action_buildMat($rezult)
 	{	
 	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
 	}
 
-	function action_sofa($rezult)
+	function action_decorMat($rezult)
 	{	
 	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
 	}
 
-	function action_table($rezult)
+	function action_fasteners($rezult)
 	{	
 	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
 	}
 
-	function action_closet($rezult)
+	function action_lumber($rezult)
 	{	
 	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
 	}
@@ -45,169 +45,137 @@ class Controller_tovar extends Controller
 
     /*Функции для многоуровней иерархии */
 
-    /*Кресла*/
+    /*Инструменты*/
 
-    function action_chair_livingroom($rezult)
+    function action_instruments_brushes($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_chair_bedroom($rezult)
+    function action_instruments_handsaw($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_chair_diningroom($rezult)
+    function action_instruments_drill($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_chair_bathroom($rezult)
+    function action_instruments_shovel($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_chair_street($rezult)
+    function action_instruments_spatula($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_chair_another($rezult)
+       /*Строительные материалы*/
+
+    function action_buildMat_cement($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    /*Кровати*/
-
-    function action_beds_livingroom($rezult)
+    function action_buildMat_sand($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_beds_bedroom($rezult)
+    function action_buildMat_gasConcrete($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_beds_diningroom($rezult)
+    function action_buildMat_insulation($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_beds_bathroom($rezult)
+    function action_buildMat_roof($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_beds_street($rezult)
+    /*Отделочные материалы*/
+
+    function action_decorMat_glue($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_beds_another($rezult)
+    function action_decorMat_paint($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    /*Диваны*/
-
-    function action_sofa_livingroom($rezult)
+    function action_decorMat_sealant($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_sofa_bedroom($rezult)
+    function action_decorMat_plumbing($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_sofa_diningroom($rezult)
+    function action_decorMat_laminate($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_sofa_bathroom($rezult)
+        /*Крепежи*/
+
+    function action_fasteners_screw($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_sofa_street($rezult)
+    function action_fasteners_spike($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_sofa_another($rezult)
+    function action_fasteners_pin($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    /*Столы*/
-
-    function action_table_livingroom($rezult)
+    function action_fasteners_nut($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_table_bedroom($rezult)
+    function action_fasteners_collar($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_table_diningroom($rezult)
+    /*Пиломатериалы*/
+
+    function action_lumber_plank($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_table_bathroom($rezult)
+    function action_lumber_dsp($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_table_street($rezult)
+    function action_lumber_osb($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    function action_table_another($rezult)
+    function action_lumber_plywood($rezult)
     {
         $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
     }
 
-    /*Шкафы*/
-
-    function action_closet_livingroom($rezult)
-    {
-        $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
-    }
-
-    function action_closet_bedroom($rezult)
-    {
-        $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
-    }
-
-    function action_closet_diningroom($rezult)
-    {
-        $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
-    }
-
-    function action_closet_bathroom($rezult)
-    {
-        $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
-    }
-
-    function action_closet_street($rezult)
-    {
-        $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
-    }
-
-    function action_closet_another($rezult)
-    {
-        $this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
-    }
-
-
-
-}
+  }
 
 
 

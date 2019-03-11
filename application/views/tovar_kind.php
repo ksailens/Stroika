@@ -9,54 +9,48 @@
 </div>
 
 <div class="Content_block">
-
 <ul class="Content_block_Menu">
+    <li><a href="/tovar/instruments">ИНСТРУМЕНТЫ</a></li>
+    <ul class="Submenu">
+        <li><a href="/tovar/instruments_brushes">КИСТИ И ВАЛИКИ</a></li>
+        <li><a href="/tovar/instruments_handsaw">НОЖОВКИ И ПИЛЫ</a></li>
+        <li><a href="/tovar/instruments_drill">БУРЫ И СВЕРЛА</a></li>
+        <li><a href="/tovar/instruments_shovel">ЛОПАТЫ</a></li>
+        <li><a href="/tovar/instruments_spatula">ШПАТЕЛЯ</a></li>
 
-    <li><a href="/tovar/chair">ИНСТРУМЕНТЫ</a></li>
-        <ul class="Submenu">
-            <li><a href="/tovar/chair_livingroom">КИСТИ И ВАЛИКИ</a></li>
-            <li><a href="/tovar/chair_bedroom">НОЖОВКИ И ПИЛЫ</a></li>
-            <li><a href="/tovar/chair_diningroom">БУРЫ И СВЕРЛА</a></li>
-            <li><a href="/tovar/chair_bathroom">ЛОПАТЫ</a></li>
-            <li><a href="/tovar/chair_street">ШПАТЕЛЯ</a></li>
-            <!--        <li><a href="/tovar/chair_another">ДРУГОЕ</a></li>-->
-        </ul>
-    <li><a href="/tovar/beds">СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ</a></li>
-        <ul class="Submenu">
-            <li><a href="/tovar/beds_livingroom">ЦЕМЕНТ И ДОБАВКИ</a></li>
-            <li><a href="/tovar/beds_bedroom">ПЕСОК И ЩЕБЕНЬ</a></li>
-            <li><a href="/tovar/beds_diningroom">ГАЗОБЕТОН</a></li>
-            <li><a href="/tovar/beds_bathroom">УТЕПЛИТЕЛИ</a></li>
-            <li><a href="/tovar/beds_street">КРОВЛЯ</a></li>
-            <!--        <li><a href="/tovar/beds_another">ДРУГОЕ</a></li>-->
-        </ul>
-    <li><a href="/tovar/sofa">ОТДЕЛОЧНЫЕ МАТЕРИАЛЫ</a></li>
-        <ul class="Submenu">
-            <li><a href="/tovar/sofa_livingroom">КЛЕЙ</a></li>
-            <li><a href="/tovar/sofa_bedroom">КРАСКИ И ЛАКИ</a></li>
-            <li><a href="/tovar/sofa_diningroom">ГЕРМЕТИКИ И ПЕНА</a></li>
-            <li><a href="/tovar/sofa_bathroom">ПЛИТКА И САНТЕХНИКА</a></li>
-            <li><a href="/tovar/sofa_street">ЛАМИНАТ</a></li>
-            <!--        <li><a href="/tovar/sofa_another">ДРУГОЕ</a></li>-->
-        </ul>
-    <li><a href="/tovar/table">КРЕПЕЖИ</a></li>
-        <ul class="Submenu">
-            <li><a href="/tovar/table_livingroom">САМОРЕЗЫ</a></li>
-            <li><a href="/tovar/table_bedroom">ГВОЗДИ</a></li>
-            <li><a href="/tovar/table_diningroom">ШПИЛЬКИ</a></li>
-            <li><a href="/tovar/table_bathroom">ГАЙКИ</a></li>
-            <li><a href="/tovar/table_street">ШАЙБЫ</a></li>
-            <!--        <li><a href="/tovar/table_another">ДРУГОЕ</a></li>-->
-        </ul>
-    <li><a href="/tovar/closet">ПИЛОМАТЕРИАЛЫ</a></li>
-        <ul class="Submenu">
-            <li><a href="/tovar/closet_livingroom">БРУС И ДОСКА</a></li>
-            <li><a href="/tovar/closet_bedroom">ДСП И ДВП</a></li>
-            <li><a href="/tovar/closet_diningroom">ОСБ</a></li>
-            <li><a href="/tovar/closet_bathroom">ФАНЕРА</a></li>
-            <!--        <li><a href="/tovar/closet_street">ДЛЯ УЛИЦЫ</a></li>-->
-            <!--        <li><a href="/tovar/closet_another">ДРУГОЕ</a></li>-->
-        </ul>
+    </ul>
+    <li><a href="/tovar/buildMat">СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ</a></li>
+    <ul class="Submenu">
+        <li><a href="/tovar/buildMat_cement">ЦЕМЕНТ И ДОБАВКИ</a></li>
+        <li><a href="/tovar/buildMat_sand">ПЕСОК И ЩЕБЕНЬ</a></li>
+        <li><a href="/tovar/buildMat_gasConcrete">ГАЗОБЕТОН</a></li>
+        <li><a href="/tovar/buildMat_insulation">УТЕПЛИТЕЛИ</a></li>
+        <li><a href="/tovar/buildMat_roof">КРОВЛЯ</a></li>
+
+    </ul>
+    <li><a href="/tovar/decorMat">ОТДЕЛОЧНЫЕ МАТЕРИАЛЫ</a></li>
+    <ul class="Submenu">
+        <li><a href="/tovar/decorMat_glue">КЛЕЙ</a></li>
+        <li><a href="/tovar/decorMat_paint">КРАСКИ И ЛАКИ</a></li>
+        <li><a href="/tovar/decorMat_sealant">ГЕРМЕТИКИ И ПЕНА</a></li>
+        <li><a href="/tovar/decorMat_plumbing">ПЛИТКА И САНТЕХНИКА</a></li>
+        <li><a href="/tovar/decorMat_laminate">ЛАМИНАТ</a></li>
+    </ul>
+    <li><a href="/tovar/fasteners">КРЕПЕЖИ</a></li>
+    <ul class="Submenu">
+        <li><a href="/tovar/fasteners_screw">САМОРЕЗЫ</a></li>
+        <li><a href="/tovar/fasteners_spike">ГВОЗДИ</a></li>
+        <li><a href="/tovar/fasteners_pin">ШПИЛЬКИ</a></li>
+        <li><a href="/tovar/fasteners_nut">ГАЙКИ</a></li>
+        <li><a href="/tovar/fasteners_collar">ШАЙБЫ</a></li>
+    </ul>
+    <li><a href="/tovar/lumber">ПИЛОМАТЕРИАЛЫ</a></li>
+    <ul class="Submenu">
+        <li><a href="/tovar/lumber_plank">БРУС И ДОСКА</a></li>
+        <li><a href="/tovar/lumber_dsp">ДСП И ДВП</a></li>
+        <li><a href="/tovar/lumber_osb">ОСБ</a></li>
+        <li><a href="/tovar/lumber_plywood">ФАНЕРА</a></li>
+    </ul>
     <li><a href="/tovar/other">ДРУГОЕ</a></li>
 
 </ul>
