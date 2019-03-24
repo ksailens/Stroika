@@ -180,7 +180,11 @@ public static function News_info($data){
 	echo '<br><h2 align=center>'.$res['Nazv'].'</h2><br><ul>';
 	echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
 	echo '<li><img src="/photo/im2.jpg"><span>Запись добавлена: '.$res['Users'].'</span></li>';
-	echo '<img class="photoss" src="'.$res['Photos'].'">';
+	if ($res['Photos'] !== '/photo/news/') {
+        echo '<img class="photoss" src="'.$res['Photos'].'">';
+    } else {
+        echo '<img class="photoss" src="../../photo/noimage.png">';
+    }
 	echo '<div><br>';
 	echo '<p>'.$res['Texts'].'</p></div></ul>	';
 	}
@@ -189,16 +193,39 @@ public static function News_info($data){
 
 public static function News($data){
 	while($res=$data->fetch(PDO::FETCH_BOTH)){
-	echo '<li><img height="300px" width="570px" src="'.$res['Photos'].'"><div>';
-	echo '<h3>'.$res['Nazv'].'</h3>';
-	echo '<ul class="Info_News">';
-	echo '<li style="margin-left:0;"><img src="photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
-	echo '<li><img src="photo/im2.jpg"><span>'.$res['Users'].'</span></li>';
-	echo '</ul>';
-	echo '<p class="www">'.mb_substr($res['Texts'], 0, 50, 'UTF-8') . '...'.'<p>';
-    echo '<div></div>';
-	echo '<a class="www1" href="news/info/'.$res['id'].'">Подробнее</a>';
-	echo '</div></li>';
+	    if ($res['Photos'] !== '/photo/news/') {
+            echo '<li><img height="300px" width="570px" src="'.$res['Photos'].'"><div>';
+        } else {
+            echo '<li><img height="300px" width="570px" src="photo/noimage.png"><div>';
+        }
+        echo '<h3>'.$res['Nazv'].'</h3>';
+        echo '<ul class="Info_News">';
+        echo '<li style="margin-left:0;"><img src="photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
+        echo '<li><img src="photo/im2.jpg"><span>'.$res['Users'].'</span></li>';
+        echo '</ul>';
+        echo '<p class="www">'.mb_substr($res['Texts'], 0, 50, 'UTF-8') . '...'.'<p>';
+        echo '<div></div>';
+        echo '<a class="www1" href="news/info/'.$res['id'].'">Подробнее</a>';
+        echo '</div></li>';
+	}
+}
+public static function IndexNews(){
+    require_once 'application/config/Db.php';
+    $db=Db::getConnection();
+    $str="Select *from News ORDER BY Datas DESC limit 3";
+    $result=$db->prepare($str);
+    $result->execute();
+
+	while($res=$result->fetch(PDO::FETCH_BOTH))
+    {
+        echo '<li><div class="IndexNewsBlock">';
+        echo '<h3>'.$res['Nazv'].'</h3>';
+        echo '<ul class="Info_IndexNews">';
+        echo '<li><img src="photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
+        echo '</ul>';
+        echo '<p>'.mb_substr($res['Texts'], 0, 50, 'UTF-8') . '...'.'<p>';
+        echo '<a href="news/info/'.$res['id'].'">Подробнее</a>';
+        echo '</div></li>';
 	}
 }
 

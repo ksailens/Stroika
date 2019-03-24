@@ -2,11 +2,11 @@
 <h2>Карта сайта</h2><br>
 <ul class="sait_map">
 	<li><a href="/index">1.Главная</a>
-		<div><a href="/tovar/chair">1.1. Инструменты</a></div>
-		<div><a href="/tovar/beds">1.2. Строй.материалы</a></div>
-		<div><a href="/tovar/sofa">1.3. Отделка</a></div>
-		<div><a href="/tovar/table">1.4. Крепежи</a></div>
-		<div><a href="/tovar/closet">1.5. Пиломатериалы</a></div>
+		<div><a href="/tovar/instruments">1.1. Инструменты</a></div>
+		<div><a href="/tovar/buildMat">1.2. Строй.материалы</a></div>
+		<div><a href="/tovar/decorMat">1.3. Отделка</a></div>
+		<div><a href="/tovar/fasteners">1.4. Крепежи</a></div>
+		<div><a href="/tovar/lumber">1.5. Пиломатериалы</a></div>
 		<div><a href="/tovar/other">1.6. Другое</a></div>
 	</li>
 
