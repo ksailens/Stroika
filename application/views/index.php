@@ -9,16 +9,6 @@
 </div>
 
 <div class="Content_block">
-<!---->
-<!--<ul class="Content_block_Menu">-->
-<!--	-->
-<!--<li><a href="/tovar/instruments">ИНСТРУМЕНТЫ</a></li>-->
-<!--<li><a href="/tovar/buildMat">СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ</a></li>-->
-<!--<li><a href="/tovar/decorMat">ОТДЕЛОЧНЫЕ МАТЕРИАЛЫ</a></li>-->
-<!--<li><a href="/tovar/fasteners">КРЕПЕЖИ</a></li>-->
-<!--<li><a href="/tovar/lumber">ПИЛОМАТЕРИАЛЫ</a></li>-->
-<!--<li><a href="/tovar/other">ДРУГОЕ</a></li>-->
-<!--</ul>-->
     <ul class="Content_block_IndexNews">
         <div class="NewsHeader">Последние новости</div>
         <?php
