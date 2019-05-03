@@ -62,7 +62,7 @@ footer{
 
 .Top_content_menu{
     position: absolute;
-    left: 750px;
+    left: 835px;
     top: 41px;
     width: 450px;
 }
@@ -499,10 +499,11 @@ input[type="text"],input[type="password"]{
 .inp{
     width: 310px;
     height: 40px;
-    background-color: rgb(144, 115, 61);
     cursor: pointer;
-    color: #03d600;
     transition:1s;
+    background-color: #03d600;
+    font-weight: bold;
+    color: #000;
 }
 
 .inp:hover{
@@ -529,7 +530,7 @@ table {
 }
 
 th, td {
-    padding:18px 28px 18px;
+    padding:15px 10px;
     text-align:center;
 }
 

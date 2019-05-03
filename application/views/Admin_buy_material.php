@@ -5,4 +5,4 @@ User_Function::Admin_buy_material($data);
 ?>
 
 
-</div>;
+</div>
