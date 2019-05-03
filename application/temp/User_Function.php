@@ -85,6 +85,7 @@ class User_Function{
             echo '<br>';
             echo '<hr style="background: black; width: 840px; height: 1px;">';
             echo '<p>Общая стоимость заказа:  '.$sum_coin.'</p>';
+//            echo '<a class="sendMail" href="/user/send_mail/">Отправить заявку на почту</a>';
         }
 
     }

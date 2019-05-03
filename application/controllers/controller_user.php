@@ -308,6 +308,17 @@ class Controller_user extends Controller
 
     }
 
+    function action_send_mail()
+    {
+        if (isset($_SESSION["Login"])) {
+            header("Location: /user/my_buy");
+        }
+        else{
+            header("Location: /avtoriz");
+        }
+
+    }
+
 
     function action_delete_buy2()
     {
