@@ -84,7 +84,7 @@ class User_Function{
             echo '</table>';
             echo '<br>';
             echo '<hr style="background: black; width: 840px; height: 1px;">';
-            echo '<p>Общая стоимость заказа:  '.$sum_coin.'</p>';
+            echo '<p>Общая стоимость заказа:  '.(float)$sum_coin.'</p>';
 //            echo '<a class="sendMail" href="/user/send_mail/">Отправить заявку на почту</a>';
         }
 
@@ -613,7 +613,9 @@ class User_Function{
             echo '</ul>';
             echo '<div class="Content_block_Tovar">';
             echo '<h2>Список товаров</h2>';
-
+            echo '<br>';
+            echo '<a style="color:black;margin-left:700px;border:1px solid silver;padding: 5px 10px;" href="/user/material_add">Добавить товар</a>';
+            echo '<br>';
 
             echo '<br><table cellspacing="0">';
             echo '<tr><th>Название</th><th>Текст</th><th>Наличие</th><th>Страна</th><th>Цвет</th><th>Управление</th></tr>';
@@ -622,7 +624,6 @@ class User_Function{
             }
 
             echo '</table><br>';
-            echo '<a style="color:black;margin-left:700px;border:1px solid silver;padding: 5px 10px;" href="/user/material_add">Добавить товар</a>';
             echo '</div>';
         }
     }

@@ -501,7 +501,7 @@ input[type="text"],input[type="password"]{
     height: 40px;
     cursor: pointer;
     transition:1s;
-    background-color: #03d600;
+    background-color: #ffc800;
     font-weight: bold;
     color: #000;
 }
@@ -569,7 +569,7 @@ tr.odd-row td {
 
 th {
     background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
-    background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+    background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#fbff002e), to(#feff002b));
 }
 
 tr:first-child th.first {
@@ -639,9 +639,9 @@ tr:last-child td.last {
     padding: 10px 65px;
 
     border: 1px solid black;
-    background-color: rgb(144, 115, 61);
+    background-color: #ffd100;
     font-weight: bold;
-    color: #03d600;
+    color: #000;
     margin: 20px 30px 30px 900px;
     transition: 1s;
 }
