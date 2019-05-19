@@ -3,7 +3,9 @@
     padding: 0;
     margin: 0;
 }
-
+html, body {
+    height: 100%;
+}
 a{
     list-style: none;
     text-decoration: none;
@@ -13,22 +15,31 @@ li{
     list-style: none;
     text-decoration: none;
 }
-
-footer{
-    margin-top: 500px;
-    margin-bottom: 20px;
+.wrapper {
     width: 1200px;
-    height: 75px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.wrapper_content_block {
+
+    flex: 1 0 auto;
+}
+footer{
+    flex: 0 0 auto;
+    width: 1200px;
     padding-top: 15px;
     padding-bottom: 15px;
     margin: 0 auto;
+    margin-top: 15px;
     background-color: #ff7300;
     color: white;
     text-align: center;
 }
 
 .Top_content{
-    position: relative;
+    min-height: 100px;
     height: 100px;
     width: 1200px;
     margin: 0 auto;
@@ -36,11 +47,11 @@ footer{
 }
 
 .Emblem{
-    position: absolute;
-    left: 25px;
-    top: 42px;
+    position: relative;
+    float: left;
     height: 40px;
-    width: 300px;
+    margin-top: 40px;
+    margin-left: 20px;
 }
 
 .avtor{
@@ -61,10 +72,9 @@ footer{
 }
 
 .Top_content_menu{
-    position: absolute;
-    left: 835px;
-    top: 41px;
-    width: 450px;
+    position: relative;
+    float: right;
+    margin-top: 40px;
 }
 
 .Top_content_menu li{
@@ -86,7 +96,7 @@ footer{
     position: absolute;
     z-index: 1001;
     top: 12px;
-    min-height:70px;
+    /*min-height:70px;*/
     width: 200px;
     padding-top: 3px;
     border: 1px solid silver;
@@ -179,14 +189,15 @@ footer{
 
 .Content_block{
     position: relative;
-    margin: 30px auto 0 auto;
+    margin: 0 auto;
     width: 1200px;
-    min-height: 500px;
+    /*min-height: 500px;*/
 }
 
 .Content_block_Menu{
-    position: absolute;
+    float: left;
     width: 280px;
+    margin-top: 17px;
 }
 
 .Content_block_Menu li{
@@ -201,8 +212,10 @@ footer{
     font-size: 13px;
 }
 .Content_block_IndexNews{
-    position: absolute;
+    position: relative;
     width: 280px;
+    margin-top: 20px;
+    float: left;
 }
 
 .NewsHeader {
@@ -230,13 +243,15 @@ footer{
 }
 
 .Content_block_Tovar{
+    width: 900px;
     position: relative;
-    left: 300px;
-    min-height: 450px;
+    float: right;
+    text-align: center;
 }
 
 .Content_block_Noleft{
-    left: 0px;
+    width: 1200px;
+    text-align: center;
 }
 
 
@@ -273,7 +288,6 @@ footer{
 
 
 .Info{
-    width: 900px;
     background-color: #ff7300;
     padding: 8px 0;
     text-indent: 30px;
@@ -289,13 +303,11 @@ footer{
     display: inline-block;
     width: 278px;
     min-height: 370px;
-    margin-right: 25px;
 
 }
 
 
 .Content_block_Tovar li img{
-    position: absolute;
     width: 100%;
     height: 230px;
 }
@@ -365,7 +377,7 @@ footer{
 
 .News_block{
     width: 1200px;
-    min-height: 500px;
+    /*min-height: 500px;*/
     margin: 0 auto;
 }
 
@@ -381,7 +393,6 @@ footer{
 
 .News li div{
     position: relative;
-    left: 600px;
     width: 600px;
     height: 300px;
 }
@@ -491,11 +502,6 @@ input[type="text"],input[type="password"]{
     font-family: Tahoma;
 }
 
-.Content_block{
-    min-height: 800px;
-    margin: 0 auto;
-}
-
 .inp{
     width: 310px;
     height: 40px;
@@ -520,7 +526,7 @@ table {
     overflow:hidden;
     border:1px solid #d3d3d3;
     background:#fefefe;
-    width:70%;
+    width:100%;
 
     -moz-border-radius:5px; /* FF1+ */
     -webkit-border-radius:5px; /* Saf3-4 */
@@ -616,17 +622,17 @@ tr:last-child td.last {
     margin-left: 30px;
     position: relative;
     display: inline-block;
-    width: 250px;
     text-align: left;
 }
 
-.News_info div{
+.News_info_main {
     text-align: left;
     font-size: 15px;
-    width: 1150px;
+    width: 100%;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
-.News_info div p{
+.News_info_main div p{
     margin-top: 3px;
     text-indent: 30px;
     line-height: 1.5;
@@ -731,4 +737,18 @@ tr:last-child td.last {
     /*top: 320px;*/
     /*left: 111px;*/
     font-size: 13px;
+}
+
+.news_img {
+    float: left;
+}
+
+.news_wrap {
+    float: right;
+}
+.Admin_Tovar {
+    width: 100%;
+}
+.News_Add, .Material_Add {
+    text-align: left;
 }

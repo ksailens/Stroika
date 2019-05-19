@@ -88,9 +88,10 @@ class User_Function{
                 }}
             echo '</table>';
             echo '<br>';
-            echo '<hr style="background: black; width: 840px; height: 1px;">';
-            echo '<p>Общая стоимость заказа:  '.(float)$sum_coin.' рублей</p>';
+            echo '<hr style="background: black; width: 100%; height: 1px;">';
+            echo '<p style="text-align: left">Общая стоимость заказа:  '.(float)$sum_coin.' рублей</p>';
 //            echo '<a class="sendMail" href="/user/send_mail/">Отправить заявку на почту</a>';
+            echo '</div>';
         }
 
     }
@@ -222,9 +223,9 @@ class User_Function{
         while($res=$data->fetch(PDO::FETCH_BOTH)){
             $date=date_create($res['Datas']);
             if ($res['Photos'] !== '/photo/news/') {
-                echo '<li><img height="300px" width="570px" src="'.$res['Photos'].'"><div>';
+                echo '<li><img class="news_img" height="300px" width="570px" src="'.$res['Photos'].'"><div class="news_wrap">';
             } else {
-                echo '<li><img height="300px" width="570px" src="photo/noimage.png"><div>';
+                echo '<li><img class="news_img"  height="300px" width="570px" src="photo/noimage.png"><div class="news_wrap">';
             }
             echo '<h3>'.$res['Nazv'].'</h3>';
             echo '<ul class="Info_News">';
@@ -397,7 +398,7 @@ class User_Function{
     public static function materials_info($data){
         while($res=$data->fetch(PDO::FETCH_BOTH)){
             $date=date_create($res['Datas']);
-
+            echo '<div class="News_info_main">';
             echo '<br><h2 align=center>'.$res['Nazv'].'</h2><br><ul>';
             echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.date_format($date,"H:i:s d.m.Y").'</span></li>';
             echo '<li><img src="/photo/im2.jpg"><span>Запись добавлена: '.$res['Users'].'</span></li>';
@@ -433,12 +434,7 @@ class User_Function{
                 echo '</form>';
             }
             else{echo '<a class="dm4" class="dm1">Купить</a>';}
-
-
-            echo '<div><br>';
-            echo '<div><br>';
-            echo '<div><br>';
-
+            echo '</div>';
 
             require_once 'application/config/Db.php';
             $currentid = $res['id'];
@@ -449,7 +445,7 @@ class User_Function{
             $result = $db->prepare($str);
             $result->execute();
 
-            echo '<ul class="Content_block_Tovar Content_block_Noleft">';
+            echo '<div class="Content_block_Tovar Content_block_Noleft">';
             echo '<div class="Info">ТАКЖЕ РЕКОМЕНДУЕМ ВАМ:</div>';
             while ($res = $result->fetch(PDO::FETCH_BOTH)) {
                 echo '<li>';
@@ -470,7 +466,7 @@ class User_Function{
                 echo '<a href="/tovar/info/' . $res['id'] . '" class="dm2">Детали</a>';
                 echo '</li>';
             }
-            echo '</ul>';
+            echo '</div>';
 
         }}
 
@@ -574,7 +570,7 @@ class User_Function{
             echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
             echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
             echo '</ul>';
-            echo '<div class="Content_block_Tovar">';
+            echo '<div class="Content_block_Tovar News_Add">';
             echo '<h2>Новая запись</h2>';
 
 
@@ -586,6 +582,7 @@ class User_Function{
             echo '<input type="file" name="filename"><br><br>';
             echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value=Загрузить фото></form>';
             echo '</form>';
+            echo '</div>';
         }
         elseif ($_SESSION['Login']=="Moder") {
 
@@ -593,7 +590,7 @@ class User_Function{
             echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
             echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
             echo '</ul>';
-            echo '<div class="Content_block_Tovar">';
+            echo '<div class="Content_block_Tovar News_Add">';
             echo '<h2>Новая запись</h2>';
 
 
@@ -605,6 +602,7 @@ class User_Function{
             echo '<input type="file" name="filename"><br><br>';
             echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value=Загрузить фото></form>';
             echo '</form>';
+            echo '</div>';
         }
     }
 
@@ -801,7 +799,7 @@ class User_Function{
             echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
             echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
             echo '</ul>';
-            echo '<div class="Content_block_Tovar">';
+            echo '<div class="Content_block_Tovar Material_Add">';
             echo '<h2>Новая запись</h2>';
 
 
@@ -878,6 +876,7 @@ class User_Function{
             echo '<input type="file" name="filename"><br><br>';
             echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value=Загрузить фото></form>';
             echo '</form>';
+            echo '</div>';
         }}
 
 
@@ -889,12 +888,12 @@ class User_Function{
             echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
             echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
             echo '</ul>';
-            echo '<div class="Content_block_Tovar">';
+            echo '<div class="Content_block_Tovar Admin_Tovar">';
             echo '<h2>Заявки на покупку</h2>';
 
 
             echo '<br><table cellspacing="0">';
-            echo '<tr><th>Название</th><th>Логин покупателя</th><th>Количество</th><th>Общая стоимость</th><th>Дата заказа</th><th>Состояние заявки</th><th>Телефон</th><th>Управление</th><th>Статус завки</th></tr>';
+            echo '<tr><th>Название</th><th>Логин покупателя</th><th>Email покупателя</th><th>Количество</th><th>Общая стоимость</th><th>Дата заказа</th><th>Состояние заявки</th><th>Телефон</th><th>Управление</th><th>Статус завки</th></tr>';
             while($res=$data->fetch(PDO::FETCH_BOTH)){
                 echo '<tr>';
 
@@ -906,6 +905,7 @@ class User_Function{
                 while($res2=$result->fetch(PDO::FETCH_BOTH)){
                     $date=date_create($res['Datas']);
                     echo '<td> '.$res2['Nazv'].' </td>';
+                    echo '<td> '.$res['Login'].' </td>';
                     echo '<td> '.$res['Login'].' </td>';
                     echo '<td> '.$res['Kolvo'].' шт.</td>';
                     echo '<td> '.$res['Kolvo']*$res2['Coin'].' руб.</td>';
@@ -922,6 +922,7 @@ class User_Function{
                     echo '</tr>';
                 }}
             echo '</table>';
+            echo '</div>';
 
         }}
 

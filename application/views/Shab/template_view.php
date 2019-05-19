@@ -34,61 +34,61 @@
 </head>
 
 <body>
+<div class="wrapper">
 
-<div class="Top_content">
+    <div class="Top_content">
 
-    <ul class="Emblem">
-        <a href="/index">
+        <ul class="Emblem">
+            <a href="/index">
 
-            <li style="color:#f1f558; text-shadow: black 0 0 10px;">СЕВ</li>
-            <li style="color:white;">СТРОЙ</li>
-        </a>
+                <li style="color:#f1f558; text-shadow: black 0 0 10px;">СЕВ</li>
+                <li style="color:white;">СТРОЙ</li>
+            </a>
+        </ul>
+
+        <ul class="Top_content_menu">
+            <li><a href="/user">ЛИЧНЫЙ КАБИНЕТ</a></li>
+            <li><a href="/avtoriz">АВТОРИЗАЦИЯ</a></li>
+            <li><a href="/sait_map">КАРТА САЙТА</a></li>
+        </ul>
+
+    </div>
+    <ul class="Main_Menu">
+        <li><a href="/index">ГЛАВНАЯ СТРАНИЦА</a></li>
+        <li><a href="/news">НОВОСТИ И АКЦИИ</a></li>
+        <li><a href="/tovar">КАТАЛОГ НАШЕЙ ПРОДУКЦИИ</a></li>
+        <li><a href="/kont">СВЯЖИТЕСЬ С НАМИ</a></li>
+        <li><a href="/map">СХЕМА ПРОЕЗДА</a></li>
+
+        <?php
+        if (isset($_SESSION['Login'])) {
+            echo "<p class='avtor'>Добро пожаловать, <span>".$_SESSION['Login']."</span>! <a style='color:silver;' href='/avtoriz/logout'>Выход</a></p>";
+        }
+        else{
+            echo "<p class='avtor'>Добро пожаловать, <span>Гость</span>!</p>";
+        }
+        ?>
+
+
+
+
     </ul>
 
-    <ul class="Top_content_menu">
-        <li><a href="/user">ЛИЧНЫЙ КАБИНЕТ</a></li>
-        <li><a href="/avtoriz">АВТОРИЗАЦИЯ</a></li>
-        <li><a href="/sait_map">КАРТА САЙТА</a></li>
-    </ul>
+    <div class="wrapper_content_block">
+        <?php
+        include 'application/views/'.$content_view;
+        ?>
+    </div>
 
+
+    <footer>
+        <p>ОНЛАЙН МАГАЗИН СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ</p>
+        <p>ПОД ЗАКАЗ</p>
+        <p>ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
+        <p> GRIDI&#169; </p>
+        <p></p>
+    </footer>
 </div>
-<ul class="Main_Menu">
-    <li><a href="/index">ГЛАВНАЯ СТРАНИЦА</a></li>
-    <li><a href="/news">НОВОСТИ И АКЦИИ</a></li>
-    <li><a href="/tovar">КАТАЛОГ НАШЕЙ ПРОДУКЦИИ</a></li>
-    <li><a href="/kont">СВЯЖИТЕСЬ С НАМИ</a></li>
-    <li><a href="/map">СХЕМА ПРОЕЗДА</a></li>
-
-    <?php
-    if (isset($_SESSION['Login'])) {
-        echo "<p class='avtor'>Добро пожаловать, <span>".$_SESSION['Login']."</span>! <a style='color:silver;' href='/avtoriz/logout'>Выход</a></p>";
-    }
-    else{
-        echo "<p class='avtor'>Добро пожаловать, <span>Гость</span>!</p>";
-    }
-    ?>
-
-
-
-
-</ul>
-
-<div class="Content_block">
-    <?php
-    include 'application/views/'.$content_view;
-    ?>
-</div>
-
-
-<br><br>
-<footer>
-    <p>ОНЛАЙН МАГАЗИН СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ</p>
-    <p>ПОД ЗАКАЗ</p>
-    <p>ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
-    <p> GRIDI&#169; </p>
-    <p></p>
-
-</footer>
 
 </body>
 
