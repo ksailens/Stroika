@@ -687,3 +687,25 @@ tr:last-child td.last {
 .sendMail:hover {
     background: #f2ed28;
 }
+
+.blockForm {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid grey;
+    height: 400px;
+    display: block;
+    text-align: center;
+}
+.forAutorize {
+    padding-top: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+    width: 310px;
+    height: 29px;
+    cursor: pointer;
+    transition: 1s;
+    background-color: #ffc800;
+    font-weight: bold;
+    color: #000;
+}

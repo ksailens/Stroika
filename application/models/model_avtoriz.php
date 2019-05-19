@@ -9,7 +9,7 @@ class model_avtoriz extends Model
 	}
 
 	function action_register()
-	{	
+	{
 		$a1=$_POST['log_reg'];
 		$a2=$_POST['pas_reg'];
 		$a3=$_POST['em_reg'];

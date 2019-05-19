@@ -30,7 +30,8 @@ var UserLogin=document.getElementById('log_reg');
 var UserPass=document.getElementById('pas_reg');
 var UserEmail=document.getElementById('em_reg');
 var UserTel=document.getElementById('tel_reg');
-
+var reEmail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
+var rePhone = /^(\+7|\+3)[0-9]{9,11}$/;
 	if (!UserLogin.value) {
 		UserLogin.style.border = "2px solid red";
 		UserLogin.placeholder = 'Поле заполнено не верно!';
@@ -51,9 +52,10 @@ var UserTel=document.getElementById('tel_reg');
 		UserPass.style.border = "2px solid green";
 	}
 
-	if (!UserEmail.value) {
+	if (!reEmail.test(UserEmail.value)) {
 		UserEmail.style.border = "2px solid red";
 		UserEmail.placeholder = 'Поле заполнено не верно!';
+		alert('Формат электронной почты не верен');
 		event.preventDefault();
 		return false;
 	}
@@ -61,9 +63,10 @@ var UserTel=document.getElementById('tel_reg');
 		UserEmail.style.border = "2px solid green";
 	}
 
-	if (!UserTel.value) {
+	if (!rePhone.test(UserTel.value)) {
 		UserTel.style.border = "2px solid red";
 		UserTel.placeholder = 'Поле заполнено не верно!';
+		alert('Формат телефона не верен');
 		event.preventDefault();
 		return false;
 	}
