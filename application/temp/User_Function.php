@@ -47,6 +47,10 @@ class User_Function{
         if (isset($_SESSION['Login'])) {
             $sum_coin = null;
 
+            if ($_SESSION['LoginSystem']==='system_registr') {
+                echo "<script language='javascript'>alert('Пользователь успешно зарегистрирован');</script>";
+                $_SESSION['LoginSystem'] = null;
+            }
 
             echo '<ul class="Content_block_Menu">';
             echo '<li><a href="/user/my_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
@@ -56,7 +60,7 @@ class User_Function{
 
 
             echo '<br><table cellspacing="0">';
-            echo '<tr><th>Название</th><th>Цена</th><th>Состояние заявки</th><th>Телефон</th><th>Управление</th></tr>';
+            echo '<tr><th>Название</th><th>Цена</th><th>Количество</th><th>Всего</th><th>Состояние заявки</th><th>Управление</th></tr>';
             while($res=$data->fetch(PDO::FETCH_BOTH)){
                 echo '<tr>';
 
@@ -67,16 +71,17 @@ class User_Function{
                 $result->execute();
                 while($res2=$result->fetch(PDO::FETCH_BOTH)){
                     echo '<td> '.$res2['Nazv'].' </td>';
-                    echo '<td> '.$res2['Coin'].' </td>';
+                    echo '<td> '.$res2['Coin'].' руб.</td>';
                     if (($res['Sost']=='0') || ($res['Sost']=='1')) {
-                        $sum_coin += $res2['Coin'];
+                        $sum_coin += $res['Kolvo']*$res2['Coin'];
                     }
+                    echo '<td> '.$res['Kolvo'].' шт.</td>';
+                    echo '<td> '.$res['Kolvo']*$res2['Coin'].' руб.</td>';
 
 
                     if ($res['Sost']=='0') {echo '<td>Заявка ещё не рассмотрена</td>';}
                     if ($res['Sost']=='1') {echo '<td>Заявка принята</td>';}
                     if ($res['Sost']=='2') {echo '<td>Отказано в заявке</td>';}
-                    echo '<td> '.$res['Tel'].' </td>';
                     echo '<td>   <a href="/tovar/info/'.$res2['id'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/delete_buy1/'.$res['id'].'"> <img src="/photo/del.png"  width="25px"></a> </td>';
 
                     echo '</tr>';
@@ -84,7 +89,7 @@ class User_Function{
             echo '</table>';
             echo '<br>';
             echo '<hr style="background: black; width: 840px; height: 1px;">';
-            echo '<p>Общая стоимость заказа:  '.(float)$sum_coin.'</p>';
+            echo '<p>Общая стоимость заказа:  '.(float)$sum_coin.' рублей</p>';
 //            echo '<a class="sendMail" href="/user/send_mail/">Отправить заявку на почту</a>';
         }
 
@@ -93,6 +98,8 @@ class User_Function{
 
 
     public static function User($data){
+
+
         if ($_SESSION['Login']=="Admin") {
 
             echo '<ul class="Content_block_Menu">';
@@ -887,7 +894,7 @@ class User_Function{
 
 
             echo '<br><table cellspacing="0">';
-            echo '<tr><th>Название</th><th>Логин покупателя</th><th>Цена</th><th>Дата заказа</th><th>Состояние заявки</th><th>Телефон</th><th>Управление</th><th>Статус завки</th></tr>';
+            echo '<tr><th>Название</th><th>Логин покупателя</th><th>Количество</th><th>Общая стоимость</th><th>Дата заказа</th><th>Состояние заявки</th><th>Телефон</th><th>Управление</th><th>Статус завки</th></tr>';
             while($res=$data->fetch(PDO::FETCH_BOTH)){
                 echo '<tr>';
 
@@ -900,7 +907,8 @@ class User_Function{
                     $date=date_create($res['Datas']);
                     echo '<td> '.$res2['Nazv'].' </td>';
                     echo '<td> '.$res['Login'].' </td>';
-                    echo '<td> '.$res2['Coin'].' </td>';
+                    echo '<td> '.$res['Kolvo'].' шт.</td>';
+                    echo '<td> '.$res['Kolvo']*$res2['Coin'].' руб.</td>';
                     echo '<td> '.date_format($date,"H:i:s d.m.Y").' </td>';
 
 

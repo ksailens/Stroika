@@ -32,7 +32,11 @@ class model_avtoriz extends Model
 			$_SESSION['Pass']=$res['Pass'];
 			$_SESSION['Email']=$res['Emails'];
 			$_SESSION['Tel']=$res['Tels'];
+            $_SESSION['LoginSystem']='system_auto';
 		}
+		else {
+            $_SESSION['LoginSystem']='system_error';
+        }
 
 	}
 

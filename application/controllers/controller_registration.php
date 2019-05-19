@@ -15,7 +15,7 @@ class Controller_registration extends Controller
             header("Location: /user");
         }
         else{
-            header("Location: /index");
+            header("Location: /registration");
         }
     }
 

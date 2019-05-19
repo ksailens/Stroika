@@ -1,4 +1,11 @@
 <div class="blockForm">
+    <?php
+        if ($_SESSION['LoginSystem'] === 'system_error') {
+            echo "<script language='javascript'>alert('Неверный логин или пароль');</script>";
+            $_SESSION['LoginSystem'] = null;
+        }
+    ?>
+
 
     <form action="/avtoriz/logined"  onsubmit="return ValidAvtoriz();"   method="POST">
         <li>

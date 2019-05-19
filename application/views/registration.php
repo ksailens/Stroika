@@ -1,4 +1,10 @@
 <div class="blockForm">
+    <?php
+    if ($_SESSION['LoginSystem'] === 'system_error') {
+        echo "<script language='javascript'>alert('Такой пользователь уже существует');</script>";
+        $_SESSION['LoginSystem'] = null;
+    }
+    ?>
     <form action="/registration/register"  onsubmit="return ValidRegister();" method="POST">
         <li>
             <br><h2 align=center>РЕГИСТРАЦИЯ</h2>

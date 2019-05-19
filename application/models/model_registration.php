@@ -22,13 +22,14 @@ class model_registration extends Model
         $res=$result->fetch(PDO::FETCH_BOTH);
 
         if (!empty($res)) {		//Если ответ положительный...то такая учётная запись уже есть
-
+            $_SESSION['LoginSystem']='system_error';
         }
         else{	//В регистрации нас интересует вариант с созданием новой учётной записи
             $_SESSION['Login']=$a1;
             $_SESSION['Pass']=$a2;
             $_SESSION['Email']=$a3;
             $_SESSION['Tel']=$a4;
+            $_SESSION['LoginSystem']='system_registr';
 
             $str="INSERT INTO `Login`(`Names`, `Pass`, `Emails`, `Tels`) VALUES ('".$a1."','".$a2."','".$a3."','".$a4."')";
             $result=$db->query($str);

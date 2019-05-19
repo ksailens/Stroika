@@ -20,7 +20,7 @@ class Controller_avtoriz extends Controller
 		header("Location: /user");
 		}	
 		else{
-		header("Location: /index");	
+		header("Location: /avtoriz");
 		}
 	}
 
