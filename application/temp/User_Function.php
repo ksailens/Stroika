@@ -160,7 +160,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -176,7 +181,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';};
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -259,7 +269,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                    echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                    echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -280,7 +295,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -301,7 +321,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -322,7 +347,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -343,7 +373,12 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {echo '<a href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '</form>';
+            }
             else{echo '<a class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
@@ -384,7 +419,12 @@ class User_Function{
             echo '<div><br>';
             echo '<p>'.$res['Texts'].'</p></div></ul>';
             echo '<br>';
-            if (isset($_SESSION['Login'])) {echo '<a class="dm4" href="/user/buy/'.$res['id'].'" class="dm1">Купить</a>';}
+            if (isset($_SESSION['Login'])) {
+                echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                echo '<input class="dm4" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                echo '<input class="number4" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '</form>';
+            }
             else{echo '<a class="dm4" class="dm1">Купить</a>';}
 
 
@@ -413,7 +453,10 @@ class User_Function{
                 echo '<b>' . $res['Nazv'] . '</b>';
                 echo '<p>' . mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...' . '</p>';
                 if (isset($_SESSION['Login'])) {
-                    echo '<a href="/user/buy/' . $res['id'] . '" class="dm1">Купить</a>';
+                    echo '<form action="/user/buy/'.$res['id'].'" method="POST">';
+                    echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                    echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
+                    echo '</form>';
                 } else {
                     echo '<a class="dm1">Купить</a>';
                 }

@@ -1,5 +1,5 @@
 <div class="blockForm">
-    <form action="/avtoriz/register"  onsubmit="return ValidRegister();" method="POST">
+    <form action="/registration/register"  onsubmit="return ValidRegister();" method="POST">
         <li>
             <br><h2 align=center>РЕГИСТРАЦИЯ</h2>
             <div>

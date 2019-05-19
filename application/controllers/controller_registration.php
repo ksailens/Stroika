@@ -19,20 +19,4 @@ class Controller_registration extends Controller
         }
     }
 
-
-    function action_logout(){
-        header("Location: /index");
-    }
-
-
-    function action_logined()
-    {
-        if (isset($_SESSION['Login'])) {
-            header("Location: /user");
-        }
-        else{
-            header("Location: /index");
-        }
-    }
-
 }

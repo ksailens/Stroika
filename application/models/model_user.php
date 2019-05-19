@@ -401,10 +401,11 @@ class model_user extends Model
     function action_buy($num)
     {
         if (isset($_SESSION["Login"])) {
+            $count = $_POST['kolvo'];
             $db=Db::getConnection();
-            $str1="INSERT INTO `Buy`(`Auto`, `Login`,`Sost`,`Tel`) 
+            $str1="INSERT INTO `Buy`(`Auto`, `Kolvo`, `Login`,`Sost`,`Tel`) 
 		VALUES (";
-            $str2="'".$num."','".$_SESSION['Login']."',0,'".$_SESSION['Tel']."')";
+            $str2="'".$num."','".$count."','".$_SESSION['Login']."',0,'".$_SESSION['Tel']."')";
             $str3=$str1.$str2;
             $result=$db->query($str3);
         }

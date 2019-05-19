@@ -331,8 +331,8 @@ footer{
     top: 320px;
     left: 16px;
     text-align: center;
-    padding: 10px 15px;
-    width: 80px;
+    padding: 11px 15px;
+    width: 95px;
     background-color: #03d600;
     font-weight: bold;
     color: #000;
@@ -343,10 +343,10 @@ footer{
 .dm2{
     position: absolute;
     top: 320px;
-    left: 150px;
+    left: 165px;
     text-align: center;
     padding: 10px 15px;
-    width: 80px;
+    width: 65px;
     border:1px solid silver;
     font-weight: bold;
     color:black;
@@ -642,7 +642,7 @@ tr:last-child td.last {
     background-color: #ffd100;
     font-weight: bold;
     color: #000;
-    margin: 20px 30px 30px 900px;
+    margin: 20px 0 30px 900px;
     transition: 1s;
 }
 
@@ -708,4 +708,27 @@ tr:last-child td.last {
     background-color: #ffc800;
     font-weight: bold;
     color: #000;
+}
+
+.number3 {
+
+    position: absolute;
+    /* display: block; */
+    /* height: 43px; */
+    width: 32px;
+    height: 37px;
+    top: 320px;
+    left: 111px;
+    border: 1px solid;
+    font-size: 13px;
+}
+.number4 {
+
+    position: relative;
+    border: 1px solid black;
+    width: 32px;
+    height: 37px;
+    /*top: 320px;*/
+    /*left: 111px;*/
+    font-size: 13px;
 }

@@ -21,7 +21,7 @@ var UserPass=document.getElementById('pas_avtoriz');
 	else{
 		UserPass.style.border = "2px solid green";
 	}
-
+ 	alert('Добро пожаловать!');
 	return true;
 }
 
@@ -74,5 +74,6 @@ var rePhone = /^(\+7|\+3)[0-9]{9,11}$/;
 		UserTel.style.border = "2px solid green";
 	}
 
+	alert("Пользователь успешно зарегистрирован!")
 	return true;
 }
