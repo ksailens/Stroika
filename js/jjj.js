@@ -76,3 +76,7 @@ var rePhone = /^(\+7|\+3)[0-9]{9,11}$/;
 
 	return true;
 }
+
+function nonAutorizedMessage() {
+	alert('Для совершения данного действия необходимо авторизоваться')
+}

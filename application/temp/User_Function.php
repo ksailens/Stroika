@@ -174,7 +174,7 @@ class User_Function{
                 echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -195,7 +195,7 @@ class User_Function{
                 echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';};
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';};
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -283,7 +283,7 @@ class User_Function{
                     echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -309,7 +309,7 @@ class User_Function{
                 echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -335,7 +335,7 @@ class User_Function{
                 echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -361,7 +361,7 @@ class User_Function{
                 echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -387,7 +387,7 @@ class User_Function{
                 echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '</form>';
             }
-            else{echo '<a class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';}
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">Детали</a>';
             echo '</li>';
         }
@@ -433,7 +433,7 @@ class User_Function{
                 echo '<input class="number4" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '</form>';
             }
-            else{echo '<a class="dm4" class="dm1">Купить</a>';}
+            else{echo '<a onclick="nonAutorizedMessage()" class="dm4" class="dm1">Купить</a>';}
             echo '</div>';
 
             require_once 'application/config/Db.php';
@@ -461,7 +461,7 @@ class User_Function{
                     echo '<input class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                     echo '</form>';
                 } else {
-                    echo '<a class="dm1">Купить</a>';
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">Купить</a>';
                 }
                 echo '<a href="/tovar/info/' . $res['id'] . '" class="dm2">Детали</a>';
                 echo '</li>';
