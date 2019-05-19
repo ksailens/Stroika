@@ -185,8 +185,10 @@ class User_Function{
 
     public static function News_info($data){
         while($res=$data->fetch(PDO::FETCH_BOTH)){
+            $date=date_create($res['Datas']);
+
             echo '<br><h2 align=center>'.$res['Nazv'].'</h2><br><ul>';
-            echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
+            echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.date_format($date,"H:i:s d.m.Y").'</span></li>';
             echo '<li><img src="/photo/im2.jpg"><span>Запись добавлена: '.$res['Users'].'</span></li>';
             if ($res['Photos'] !== '/photo/news/') {
                 echo '<img class="photoss" src="'.$res['Photos'].'">';
@@ -201,6 +203,7 @@ class User_Function{
 
     public static function News($data){
         while($res=$data->fetch(PDO::FETCH_BOTH)){
+            $date=date_create($res['Datas']);
             if ($res['Photos'] !== '/photo/news/') {
                 echo '<li><img height="300px" width="570px" src="'.$res['Photos'].'"><div>';
             } else {
@@ -208,7 +211,7 @@ class User_Function{
             }
             echo '<h3>'.$res['Nazv'].'</h3>';
             echo '<ul class="Info_News">';
-            echo '<li style="margin-left:0;"><img src="photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
+            echo '<li style="margin-left:0;"><img src="photo/im1.jpg"><span>'.date_format($date,"H:i:s d.m.Y").'</span></li>';
             echo '<li><img src="photo/im2.jpg"><span>'.$res['Users'].'</span></li>';
             echo '</ul>';
             echo '<p class="www">'.mb_substr($res['Texts'], 0, 50, 'UTF-8') . '...'.'<p>';
@@ -226,10 +229,11 @@ class User_Function{
 
         while($res=$result->fetch(PDO::FETCH_BOTH))
         {
+            $date=date_create($res['Datas']);
             echo '<li><div class="IndexNewsBlock">';
             echo '<h3>'.$res['Nazv'].'</h3>';
             echo '<ul class="Info_IndexNews">';
-            echo '<li><img src="photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
+            echo '<li><img src="photo/im1.jpg"><span>'.date_format($date,"H:i:s d.m.Y").'</span></li>';
             echo '</ul>';
             echo '<p>'.mb_substr($res['Texts'], 0, 50, 'UTF-8') . '...'.'<p>';
             echo '<a href="news/info/'.$res['id'].'">Подробнее</a>';
@@ -350,8 +354,10 @@ class User_Function{
 
     public static function materials_info($data){
         while($res=$data->fetch(PDO::FETCH_BOTH)){
+            $date=date_create($res['Datas']);
+
             echo '<br><h2 align=center>'.$res['Nazv'].'</h2><br><ul>';
-            echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.$res['Datas'].'</span></li>';
+            echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.date_format($date,"H:i:s d.m.Y").'</span></li>';
             echo '<li><img src="/photo/im2.jpg"><span>Запись добавлена: '.$res['Users'].'</span></li>';
 
             echo '<div style=" width:700px; height: 500px;" id="slider" class="slider_wrap">';
@@ -569,7 +575,9 @@ class User_Function{
             echo '<br><table cellspacing="0">';
             echo '<tr><th>Название</th><th>Текст</th><th>Дата</th><th>Пользователь</th><th>Управление</th></tr>';
             while($res=$data->fetch(PDO::FETCH_BOTH)){
-                echo '<tr><td>'.$res['Nazv'].'</td><td>'.mb_substr($res['Texts'], 0, 100, 'UTF-8') . '...'.'</td><td>'.$res['Datas'].'</td><td>'.$res['Users'].'</td><td>   <a href="/news/info/'.$res['id'].'"> <img src="/photo/info.png" width="22px"></a>   <a href="/user/correct_news/'.$res['id'].'"> <img src="/photo/red.png" width="25px"></a>    <a href="/user/delete_news/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a>   </td></tr>';
+                $date=date_create($res['Datas']);
+
+                echo '<tr><td>'.$res['Nazv'].'</td><td>'.mb_substr($res['Texts'], 0, 100, 'UTF-8') . '...'.'</td><td>'.date_format($date,"H:i:s d.m.Y").'</td><td>'.$res['Users'].'</td><td>   <a href="/news/info/'.$res['id'].'"> <img src="/photo/info.png" width="22px"></a>   <a href="/user/correct_news/'.$res['id'].'"> <img src="/photo/red.png" width="25px"></a>    <a href="/user/delete_news/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a>   </td></tr>';
             }
 
 
@@ -591,7 +599,8 @@ class User_Function{
             echo '<br><table cellspacing="0">';
             echo '<tr><th>Название</th><th>Текст</th><th>Дата</th><th>Пользователь</th><th>Управление</th></tr>';
             while($res=$data->fetch(PDO::FETCH_BOTH)){
-                echo '<tr><td>'.$res['Nazv'].'</td><td>'.mb_substr($res['Texts'], 0, 100, 'UTF-8') . '...'.'</td><td>'.$res['Datas'].'</td><td>'.$res['Users'].'</td><td>   <a href="/news/info/'.$res['id'].'"> <img src="/photo/info.png" width="22px"></a>   <a href="/user/correct_news/'.$res['id'].'"> <img src="/photo/red.png" width="25px"></a>    <a href="/user/delete_news/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a>   </td></tr>';
+                $date=date_create($res['Datas']);
+                echo '<tr><td>'.$res['Nazv'].'</td><td>'.mb_substr($res['Texts'], 0, 100, 'UTF-8') . '...'.'</td><td>'.date_format($date,"H:i:s d.m.Y").'</td><td>'.$res['Users'].'</td><td>   <a href="/news/info/'.$res['id'].'"> <img src="/photo/info.png" width="22px"></a>   <a href="/user/correct_news/'.$res['id'].'"> <img src="/photo/red.png" width="25px"></a>    <a href="/user/delete_news/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a>   </td></tr>';
             }
 
 
@@ -845,10 +854,11 @@ class User_Function{
                 $result=$db->prepare($str);
                 $result->execute();
                 while($res2=$result->fetch(PDO::FETCH_BOTH)){
+                    $date=date_create($res['Datas']);
                     echo '<td> '.$res2['Nazv'].' </td>';
                     echo '<td> '.$res['Login'].' </td>';
                     echo '<td> '.$res2['Coin'].' </td>';
-                    echo '<td> '.$res['Datas'].' </td>';
+                    echo '<td> '.date_format($date,"H:i:s d.m.Y").' </td>';
 
 
                     if ($res['Sost']=='0') {echo '<td>Заявка ещё не рассмотрена</td>';}
