@@ -411,6 +411,19 @@ class model_user extends Model
         }
     }
 
+    function action_drop_basket($num)
+    {
+        if (isset($_SESSION["Login"])) {
+            $count = $_POST['kolvo'];
+            $db=Db::getConnection();
+            $str1="INSERT INTO `Basket`(`id_tovar`, `kolvo`, `sost`,`id_user`) 
+		VALUES (";
+            $str2="'".$num."','".$count."',0,'".$_SESSION['userId']."')";
+            $str3=$str1.$str2;
+            $result=$db->query($str3);
+        }
+    }
+
     function action_my_buy()
     {
         if (isset($_SESSION["Login"])) {
@@ -422,20 +435,66 @@ class model_user extends Model
         }
     }
 
+    function action_my_basket()
+    {
+        if (isset($_SESSION["Login"])) {
+            $db=Db::getConnection();
+            $str="Select *from Basket where id_user='".$_SESSION['userId']."' and sost=0";
+            $result=$db->prepare($str);
+            $result->execute();
+            return $result;
+        }
+    }
+
+    function action_orderInfo($orderId)
+    {
+        if (isset($_SESSION["Login"])) {
+            $db=Db::getConnection();
+            $str="Select *from Basket where id_order='".$orderId."'";
+            $result=$db->prepare($str);
+            $result->execute();
+            return $result;
+        }
+    }
+
     function action_delete_buy1($num)
     {
         if (isset($_SESSION["Login"])) {
             $db=Db::getConnection();
-            $str="DELETE FROM `Buy` WHERE id='".$num."'";
+            $str="DELETE FROM `Buy` WHERE OrderId='".$num."'";
+            $str2="DELETE FROM `Basket` WHERE id_order='".$num."'";
+            $db->query($str);
+            $db->query($str2);
+        }
+
+    }
+
+    function action_delete_basketItem($num)
+    {
+        if (isset($_SESSION["Login"])) {
+            $db=Db::getConnection();
+            $str="DELETE FROM `basket` WHERE id='".$num."'";
             $result=$db->query($str);
         }
 
     }
 
-    function action_send_mail()
+    function action_create_order($num)
     {
+//        UPDATE Basket
+//SET sost=1, id_order=100
+//WHERE id_user=32 and sost=0
+
         if (isset($_SESSION["Login"])) {
-            mail('quartz_90@mail.ru', 'Заявка с сайта', "У вас новая необработанная заявка","From: ksailens@ya.ru" );
+            $dateStamp = time();
+            $db=Db::getConnection();
+            $str1="UPDATE `Basket` SET sost = 1, id_order='".$dateStamp."' WHERE id_user='".$_SESSION['userId']."' AND sost=0";
+            $str2="INSERT INTO `Buy`(`OrderId`, `Login`, `Sost`, `totalCost`) 
+		VALUES (";
+            $str3="'".$dateStamp."','".$_SESSION['Login']."',0,'".$num."')";
+            $str4=$str2.$str3;
+            $result=$db->query($str1);
+            $result2=$db->query($str4);
         }
     }
 

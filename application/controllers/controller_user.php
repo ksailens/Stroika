@@ -285,11 +285,32 @@ class Controller_user extends Controller
         }
     }
 
+    function action_drop_basket($num)
+    {
+        if (isset($_SESSION['Login'])) {
+            header("Location: /index");
+        }
+        else{
+            header("Location: /avtoriz");
+        }
+    }
+
 
     function action_my_buy($rezult)
     {
         if (isset($_SESSION["Login"])) {
             $this->view->generate('User_buy_material.php', 'template_view.php',$rezult);
+        }
+        else{
+            header("Location: /avtoriz");
+        }
+
+    }
+
+    function action_my_basket($rezult)
+    {
+        if (isset($_SESSION["Login"])) {
+            $this->view->generate('User_basket.php', 'template_view.php',$rezult);
         }
         else{
             header("Location: /avtoriz");
@@ -308,7 +329,29 @@ class Controller_user extends Controller
 
     }
 
-    function action_send_mail()
+    function action_delete_basketItem()
+    {
+        if (isset($_SESSION["Login"])) {
+            header("Location: /user/my_basket");
+        }
+        else{
+            header("Location: /avtoriz");
+        }
+
+    }
+
+    function action_orderInfo($rezult)
+    {
+        if (isset($_SESSION["Login"])) {
+            $this->view->generate('User_orderInfo.php', 'template_view.php',$rezult);
+        }
+        else{
+            header("Location: /avtoriz");
+        }
+
+    }
+
+    function action_create_order()
     {
         if (isset($_SESSION["Login"])) {
             header("Location: /user/my_buy");

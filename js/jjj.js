@@ -80,3 +80,6 @@ var rePhone = /^(\+7|\+3)[0-9]{9,11}$/;
 function nonAutorizedMessage() {
 	alert('Для совершения данного действия необходимо авторизоваться')
 }
+function dropToBasket() {
+	alert('Товар успешно добавлен в корзину')
+}
