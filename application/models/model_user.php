@@ -167,7 +167,6 @@ class model_user extends Model
             $a4=$_POST['Material_colour'];
             $a5=$_POST['Material_material'];
             $a6=$_POST['Material_opis'];
-            $a7=$_SESSION['Login'];
             $a8=$_POST['Material_korpus'];
             $a9=$_POST['Material_coin'];
             $a10=$_POST['Material_Subtype'];
@@ -181,9 +180,9 @@ class model_user extends Model
                 copy($_FILES['filename']['tmp_name'], $uploadfile);
             }
 
-            $str1="INSERT INTO `Catalog`(`Nazv`, `Nalich`, `Country`, `Colour`, `Material`, `Texts`,`Type`, `Coin`,`Subtype`, `Users`, `Photo1`)
+            $str1="INSERT INTO `Catalog`(`Nazv`, `Nalich`, `Country`, `Colour`, `Material`, `Texts`,`Type`, `Coin`,`Subtype`,`Photo1`)
 		VALUES (";
-            $str2="'".$a1."','".$a2."','".$a3."','".$a4."','".$a5."','".$a6."','".$a8."','".$a9."','".$a10."','".$a7."','".$uploadfile2."')";
+            $str2="'".$a1."','".$a2."','".$a3."','".$a4."','".$a5."','".$a6."','".$a8."','".$a9."','".$a10."','".$uploadfile2."')";
             $str3=$str1.$str2;
             $result=$db->query($str3);
         }
@@ -416,9 +415,9 @@ class model_user extends Model
         if (isset($_SESSION["Login"])) {
             $count = $_POST['kolvo'];
             $db=Db::getConnection();
-            $str1="INSERT INTO `Basket`(`id_tovar`, `kolvo`, `sost`,`id_user`) 
+            $str1="INSERT INTO `Basket`(`id_tovar`, `kolvo`, `id_order`) 
 		VALUES (";
-            $str2="'".$num."','".$count."',0,'".$_SESSION['userId']."')";
+            $str2="'".$num."','".$count."','".$_SESSION['codeUserName']."')";
             $str3=$str1.$str2;
             $result=$db->query($str3);
         }
@@ -428,7 +427,7 @@ class model_user extends Model
     {
         if (isset($_SESSION["Login"])) {
             $db=Db::getConnection();
-            $str="Select *from Buy where Login='".$_SESSION['Login']."'";
+            $str="Select *from Buy where userId='".$_SESSION['userId']."'";
             $result=$db->prepare($str);
             $result->execute();
             return $result;
@@ -439,7 +438,7 @@ class model_user extends Model
     {
         if (isset($_SESSION["Login"])) {
             $db=Db::getConnection();
-            $str="Select *from Basket where id_user='".$_SESSION['userId']."' and sost=0";
+            $str="Select *from Basket where id_order='".$_SESSION['codeUserName']."'";
             $result=$db->prepare($str);
             $result->execute();
             return $result;
@@ -461,7 +460,7 @@ class model_user extends Model
     {
         if (isset($_SESSION["Login"])) {
             $db=Db::getConnection();
-            $str="DELETE FROM `Buy` WHERE OrderId='".$num."'";
+            $str="DELETE FROM `Buy` WHERE orderId='".$num."'";
             $str2="DELETE FROM `Basket` WHERE id_order='".$num."'";
             $db->query($str);
             $db->query($str2);
@@ -481,17 +480,13 @@ class model_user extends Model
 
     function action_create_order($num)
     {
-//        UPDATE Basket
-//SET sost=1, id_order=100
-//WHERE id_user=32 and sost=0
-
         if (isset($_SESSION["Login"])) {
             $dateStamp = time();
             $db=Db::getConnection();
-            $str1="UPDATE `Basket` SET sost = 1, id_order='".$dateStamp."' WHERE id_user='".$_SESSION['userId']."' AND sost=0";
-            $str2="INSERT INTO `Buy`(`OrderId`, `Login`, `Sost`, `totalCost`) 
+            $str1="UPDATE `Basket` SET id_order='".$dateStamp."' WHERE id_order='".$_SESSION['codeUserName']."'";
+            $str2="INSERT INTO `Buy`(`orderId`, `userId`, `Sost`, `totalCost`) 
 		VALUES (";
-            $str3="'".$dateStamp."','".$_SESSION['Login']."',0,'".$num."')";
+            $str3="'".$dateStamp."','".$_SESSION['userId']."',0,'".$num."')";
             $str4=$str2.$str3;
             $result=$db->query($str1);
             $result2=$db->query($str4);
@@ -502,8 +497,10 @@ class model_user extends Model
     {
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
-            $str="DELETE FROM `Buy` WHERE id='".$num."'";
-            $result=$db->query($str);
+            $str="DELETE FROM `Buy` WHERE orderId='".$num."'";
+            $str2="DELETE FROM `Basket` WHERE id_order='".$num."'";
+            $db->query($str);
+            $db->query($str2);
         }
 
     }
@@ -525,7 +522,7 @@ class model_user extends Model
     {
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
-            $str='UPDATE `Buy` SET `Sost`="1" WHERE id='.$num;
+            $str='UPDATE `Buy` SET `Sost`="1" WHERE orderId='.$num;
             $result=$db->query($str);
             return $num;
         }
@@ -535,7 +532,7 @@ class model_user extends Model
     {
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
-            $str='UPDATE `Buy` SET `Sost`="2" WHERE id='.$num;
+            $str='UPDATE `Buy` SET `Sost`="2" WHERE orderId='.$num;
             $result=$db->query($str);
             return $num;
         }

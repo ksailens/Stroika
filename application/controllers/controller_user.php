@@ -342,6 +342,10 @@ class Controller_user extends Controller
 
     function action_orderInfo($rezult)
     {
+
+        if ($_SESSION["Login"]=="Admin") {
+            $this->view->generate('Admin_orderInfo.php', 'template_view.php',$rezult);
+        } else
         if (isset($_SESSION["Login"])) {
             $this->view->generate('User_orderInfo.php', 'template_view.php',$rezult);
         }

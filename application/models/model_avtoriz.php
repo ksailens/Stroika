@@ -9,10 +9,19 @@ class model_avtoriz extends Model
 	}
 
 	function action_logout(){
-		unset($_SESSION['Login']);
-		unset($_SESSION['Pass']);	
-		unset($_SESSION['Email']);	
-		unset($_SESSION['Tel']);		
+        $db=Db::getConnection();
+        $str1="DELETE FROM `Basket` WHERE id_order='".$_SESSION['codeUserName']."'";
+        $db->query($str1);
+        unset($_SESSION['Login']);
+        unset($_SESSION['Pass']);
+        unset($_SESSION['Email']);
+        unset($_SESSION['Tel']);
+        unset($_SESSION['LoginSystem']);
+        unset($_SESSION['userId']);
+        unset($_SESSION['codeUserName']);
+
+
+
 	}
 
 
@@ -34,6 +43,7 @@ class model_avtoriz extends Model
 			$_SESSION['Tel']=$res['Tels'];
             $_SESSION['LoginSystem']='system_auto';
             $_SESSION['userId']=$res['id'];
+            $_SESSION['codeUserName']=base64_encode($res['Names']);
 		}
 		else {
             $_SESSION['LoginSystem']='system_error';

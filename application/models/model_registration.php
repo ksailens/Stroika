@@ -5,7 +5,16 @@ class model_registration extends Model
 
     function action_index()
     {
-
+        unset($_SESSION['Login']);
+        unset($_SESSION['Pass']);
+        unset($_SESSION['Email']);
+        unset($_SESSION['Tel']);
+        unset($_SESSION['LoginSystem']);
+        unset($_SESSION['userId']);
+        unset($_SESSION['codeUserName']);
+        $db=Db::getConnection();
+        $str1="DELETE FROM `Basket` WHERE id_order='".$_SESSION['codeUserName']."'";
+        $db->query($str1);
     }
 
     function action_register()

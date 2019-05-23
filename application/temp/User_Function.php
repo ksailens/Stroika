@@ -60,10 +60,9 @@ class User_Function{
             if (!$data->fetch(PDO::FETCH_ASSOC)) {
                 echo '<p class="emptyBasket">Заявок пока нет</p>';
             } else {
-
                 require_once 'application/config/Db.php';
                 $db=Db::getConnection();
-                $string="Select *from Buy where Login='".$_SESSION['Login']."'";
+                $string="Select *from Buy where userId='".$_SESSION['userId']."'";
                 $container=$db->prepare($string);
                 $container->execute();
 
@@ -73,14 +72,14 @@ class User_Function{
                     echo '<tr>';
                     $date=date_create($res['Datas']);
 
-                    echo '<td> '.$res['OrderId'].' </td>';
+                    echo '<td> '.$res['orderId'].' </td>';
                     echo '<td> '.$res['totalCost'].' руб.</td>';
                     echo '<td> '.date_format($date,"H:i:s d.m.Y").' </td>';
                     if ($res['Sost']=='0') {echo '<td>Заявка ещё не рассмотрена</td>';}
                     if ($res['Sost']=='1') {echo '<td>Заявка принята</td>';}
                     if ($res['Sost']=='2') {echo '<td>Отказано в заявке</td>';}
 
-                    echo '<td>   <a href="/user/orderInfo/'.$res['OrderId'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/delete_buy1/'.$res['OrderId'].'"> <img src="/photo/del.png"  width="25px"></a> </td>';
+                    echo '<td>   <a href="/user/orderInfo/'.$res['orderId'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/delete_buy1/'.$res['orderId'].'"> <img src="/photo/del.png"  width="25px"></a> </td>';
 
                     echo '</tr>';
                 }
@@ -110,7 +109,7 @@ class User_Function{
             } else {
                 require_once 'application/config/Db.php';
                 $db=Db::getConnection();
-                $string="Select *from Basket where id_user='".$_SESSION['userId']."' and sost=0";
+                $string="Select *from Basket where id_order='".$_SESSION['codeUserName']."'";
                 $container=$db->prepare($string);
                 $container->execute();
 
@@ -128,9 +127,7 @@ class User_Function{
                     while($res2=$result->fetch(PDO::FETCH_BOTH)){
                         echo '<td> '.$res2['Nazv'].' </td>';
                         echo '<td> '.$res2['Coin'].' руб.</td>';
-                        if ($res['sost']=='0') {
-                            $sum_coin += $res['kolvo']*$res2['Coin'];
-                        }
+                        $sum_coin += $res['kolvo']*$res2['Coin'];
                         echo '<td> '.$res['kolvo'].' шт.</td>';
                         echo '<td> '.$res['kolvo']*$res2['Coin'].' руб.</td>';
 
@@ -163,6 +160,47 @@ class User_Function{
             echo '<ul class="Content_block_Menu">';
             echo '<li><a href="/user/my_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
             echo '<li><a href="/user/my_basket">КОРЗИНА</a></li>';
+            echo '</ul>';
+            echo '<div class="Content_block_Tovar">';
+            echo '<h2>Информация о заявке</h2>';
+            echo '<br><table cellspacing="0">';
+            echo '<tr><th>Название</th><th>Цена</th><th>Количество</th><th>Всего</th><th>Управление</th></tr>';
+            while($res=$data->fetch(PDO::FETCH_BOTH)){
+                echo '<tr>';
+
+                require_once 'application/config/Db.php';
+                $db=Db::getConnection();
+                $str="Select *from Catalog where id='".$res['id_tovar']."'";
+                $result=$db->prepare($str);
+                $result->execute();
+                while($res2=$result->fetch(PDO::FETCH_BOTH)){
+                    echo '<td> '.$res2['Nazv'].' </td>';
+                    echo '<td> '.$res2['Coin'].' руб.</td>';
+                        $sum_coin += $res['kolvo']*$res2['Coin'];
+                    echo '<td> '.$res['kolvo'].' шт.</td>';
+                    echo '<td> '.$res['kolvo']*$res2['Coin'].' руб.</td>';
+                    echo '<td>   <a href="/tovar/info/'.$res2['id'].'"> <img src="/photo/info.png" width="22px"></a></td>';
+
+                    echo '</tr>';
+                }}
+            echo '</table>';
+            echo '<br>';
+            echo '<hr style="background: black; width: 100%; height: 1px;">';
+            echo '<p style="text-align: left">Общая стоимость заявки:  '.(float)$sum_coin.' рублей</p>';
+            echo '</div>';
+        }
+
+    }
+
+    public static function Admin_orderInfo($data){
+
+        if (isset($_SESSION['Login'])) {
+            $sum_coin = null;
+            echo '<ul class="Content_block_Menu">';
+            echo '<li><a href="/user/all">СПИСОК ПОЛЬЗОВАТЕЛЕЙ</a></li>';
+            echo '<li><a href="/user/news">НОВОСТИ И АКЦИИ</a></li>';
+            echo '<li><a href="/user/send_buy">ЗАЯВКИ НА ПОКУПКУ</a></li>';
+            echo '<li><a href="/user/production">КАТАЛОГ ПРОДУКЦИИ</a></li>';
             echo '</ul>';
             echo '<div class="Content_block_Tovar">';
             echo '<h2>Информация о заявке</h2>';
@@ -267,7 +305,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -288,7 +326,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -376,7 +414,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                     echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                     echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -402,7 +440,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -428,7 +466,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -454,7 +492,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -480,7 +518,7 @@ class User_Function{
             }
             echo '<b>'.$res['Nazv'].'</b>';
             echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -500,7 +538,6 @@ class User_Function{
             echo '<div class="News_info_main">';
             echo '<br><h2 align=center>'.$res['Nazv'].'</h2><br><ul>';
             echo '<li style="width: 170px;margin-left:15px;"><img src="/photo/im1.jpg"><span>'.date_format($date,"H:i:s d.m.Y").'</span></li>';
-            echo '<li><img src="/photo/im2.jpg"><span>Запись добавлена: '.$res['Users'].'</span></li>';
 
             echo '<div style=" width:700px; height: 500px;" id="slider" class="slider_wrap">';
             if ($res['Photo1']!="") {echo '<img style=" width:700px; height: 500px;" src="'.$res['Photo1'].'" alt="" />';}
@@ -526,7 +563,7 @@ class User_Function{
             echo '<div><br>';
             echo '<p>'.$res['Texts'].'</p></div></ul>';
             echo '<br>';
-            if (isset($_SESSION['Login'])) {
+            if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                 echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                 echo '<input onclick="dropToBasket()" class="dm4" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
                 echo '<input class="number4" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
@@ -554,7 +591,7 @@ class User_Function{
                 }
                 echo '<b>' . $res['Nazv'] . '</b>';
                 echo '<p>' . mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...' . '</p>';
-                if (isset($_SESSION['Login'])) {
+                if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
                     echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
                     echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                     echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="Купить">';
@@ -989,38 +1026,45 @@ class User_Function{
             echo '</ul>';
             echo '<div class="Content_block_Tovar Admin_Tovar">';
             echo '<h2>Заявки на покупку</h2>';
-
-
-            echo '<br><table cellspacing="0">';
-            echo '<tr><th>Название</th><th>Логин покупателя</th><th>Email покупателя</th><th>Количество</th><th>Общая стоимость</th><th>Дата заказа</th><th>Состояние заявки</th><th>Телефон</th><th>Управление</th><th>Статус завки</th></tr>';
-            while($res=$data->fetch(PDO::FETCH_BOTH)){
-                echo '<tr>';
-
+            if (!$data->fetch(PDO::FETCH_ASSOC)) {
+                echo '<p class="emptyBasket">Заявок пока нет</p>';
+            } else {
                 require_once 'application/config/Db.php';
                 $db=Db::getConnection();
-                $str="Select *from Catalog where id='".$res['Auto']."'";
-                $result=$db->prepare($str);
-                $result->execute();
-                while($res2=$result->fetch(PDO::FETCH_BOTH)){
-                    $date=date_create($res['Datas']);
-                    echo '<td> '.$res2['Nazv'].' </td>';
-                    echo '<td> '.$res['Login'].' </td>';
-                    echo '<td> '.$res['Login'].' </td>';
-                    echo '<td> '.$res['Kolvo'].' шт.</td>';
-                    echo '<td> '.$res['Kolvo']*$res2['Coin'].' руб.</td>';
-                    echo '<td> '.date_format($date,"H:i:s d.m.Y").' </td>';
+                $string="Select *from Buy";
+                $container=$db->prepare($string);
+                $container->execute();
+
+                echo '<br><table cellspacing="0">';
+                echo '<tr><th>Номер заявки</th><th>Логин покупателя</th><th>Email покупателя</th><th>Телефон</th><th>Общая стоимость</th><th>Дата заказа</th><th>Состояние заявки</th><th>Управление</th><th>Статус завки</th></tr>';
+                while($res=$container->fetch(PDO::FETCH_BOTH)){
+                    echo '<tr>';
+
+                    require_once 'application/config/Db.php';
+                    $db=Db::getConnection();
+                    $str="Select *from Login where id='".$res['userId']."'";
+                    $result=$db->prepare($str);
+                    $result->execute();
+                    while($res2=$result->fetch(PDO::FETCH_BOTH)){
+                        $date=date_create($res['Datas']);
+                        echo '<td> '.$res['orderId'].' </td>';
+                        echo '<td> '.$res2['Names'].' </td>';
+                        echo '<td> '.$res2['Emails'].' </td>';
+                        echo '<td> '.$res2['Tels'].'</td>';
+                        echo '<td> '.$res['totalCost'].' руб.</td>';
+                        echo '<td> '.date_format($date,"H:i:s d.m.Y").' </td>';
 
 
-                    if ($res['Sost']=='0') {echo '<td>Заявка ещё не рассмотрена</td>';}
-                    if ($res['Sost']=='1') {echo '<td>Заявка принята</td>';}
-                    if ($res['Sost']=='2') {echo '<td>Отказано в заявке</td>';}
-                    echo '<td> '.$res['Tel'].' </td>';
-                    echo '<td>   <a href="/tovar/info/'.$res2['id'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/delete_buy2/'.$res['id'].'"> <img src="/photo/del.png" width="25px"></a> </td>';
-                    echo '<td>   <a style="color:green;" href="/user/yes/'.$res['id'].'">Принять</a>  <a style="color:red;" href="/user/noy/'.$res['id'].'">Отклонить</a> </td>';
+                        if ($res['Sost']=='0') {echo '<td>Заявка ещё не рассмотрена</td>';}
+                        if ($res['Sost']=='1') {echo '<td>Заявка принята</td>';}
+                        if ($res['Sost']=='2') {echo '<td>Отказано в заявке</td>';}
+                        echo '<td>   <a href="/user/orderInfo/'.$res['orderId'].'"> <img src="/photo/info.png" width="22px"></a>  <a href="/user/delete_buy2/'.$res['orderId'].'"> <img src="/photo/del.png" width="25px"></a> </td>';
+                        echo '<td>   <a style="color:green;" href="/user/yes/'.$res['orderId'].'">Принять</a>  <a style="color:red;" href="/user/noy/'.$res['orderId'].'">Отклонить</a> </td>';
 
-                    echo '</tr>';
-                }}
-            echo '</table>';
+                        echo '</tr>';
+                    }}
+                echo '</table>';
+            }
             echo '</div>';
 
         }}
