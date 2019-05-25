@@ -276,7 +276,15 @@ class User_Function{
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';}
+
+
+            else{
+                    if ($_SESSION['lang']==="eng") {
+                        echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                    } else {
+                        echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                    }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -303,7 +311,13 @@ class User_Function{
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';};
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -424,7 +438,13 @@ class User_Function{
                     echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';}
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -455,7 +475,13 @@ class User_Function{
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';}
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -485,7 +511,13 @@ class User_Function{
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';}
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -516,7 +548,13 @@ class User_Function{
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';}
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -547,7 +585,13 @@ class User_Function{
                 echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';}
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '<a href="/tovar/info/'.$res['id'].'" class="dm2">'.tr::trans('details').'</a>';
             echo '</li>';
         }
@@ -613,7 +657,13 @@ class User_Function{
                 echo '<input class="number4" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
                 echo '</form>';
             }
-            else{echo '<a onclick="nonAutorizedMessage()" class="dm4" class="dm1">'.tr::trans('buy').'</a>';}
+            else{
+                if ($_SESSION['lang']==="eng") {
+                    echo '<a onclick="nonAutorizedMessage_eng()" class="dm4" class="dm1">'.tr::trans('buy').'</a>';
+                } else {
+                    echo '<a onclick="nonAutorizedMessage()" class="dm4" class="dm1">'.tr::trans('buy').'</a>';
+                }
+            }
             echo '</div>';
 
             require_once 'application/config/Db.php';
@@ -646,7 +696,11 @@ class User_Function{
                     echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                     echo '</form>';
                 } else {
-                    echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                        if ($_SESSION['lang']==="eng") {
+                            echo '<a onclick="nonAutorizedMessage_eng()" class="dm1">'.tr::trans('buy').'</a>';
+                        } else {
+                            echo '<a onclick="nonAutorizedMessage()" class="dm1">'.tr::trans('buy').'</a>';
+                        }
                 }
                 echo '<a href="/tovar/info/' . $res['id'] . '" class="dm2">'.tr::trans('details').'</a>';
                 echo '</li>';
