@@ -271,9 +271,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
 
@@ -306,9 +306,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
             else{
@@ -433,9 +433,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                    echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                    echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                    echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                    echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
             else{
@@ -470,9 +470,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
             else{
@@ -506,9 +506,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
             else{
@@ -543,9 +543,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
             else{
@@ -580,9 +580,9 @@ class User_Function{
                 echo '<p>'.mb_substr($res['Texts'], 0, 35, 'UTF-8') . '...'.'</p>';
             }
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                 echo '</form>';
             }
             else{
@@ -652,9 +652,9 @@ class User_Function{
             }
             echo '<br>';
             if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                echo '<input onclick="dropToBasket()" class="dm4" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
-                echo '<input class="number4" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
+                echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                echo '<input class="dm4" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                echo '<input class="number4" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
                 echo '</form>';
             }
             else{
@@ -691,9 +691,9 @@ class User_Function{
                     echo '<p>' . mb_substr($res['Texts'], 0, 80, 'UTF-8') . '...' . '</p>';
                 }
                 if (isset($_SESSION['Login']) && $_SESSION["Login"]!="Admin") {
-                    echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST">';
-                    echo '<input class="number3" name="kolvo" min="1" max="99" id="number" type="number" value="1">';
-                    echo '<input onclick="dropToBasket()" class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
+                    echo '<form action="/user/drop_basket/'.$res['id'].'" method="POST" onsubmit="return itemNumberChange('.$res['id'].',`'.$_SESSION['lang'].'`)">';
+                    echo '<input class="number3" name="kolvo" min="1" max="99" id="number'.$res['id'].'" type="number" value="1">';
+                    echo '<input class="dm1" style="cursor: pointer" type="submit" value="'.tr::trans('buy').'">';
                     echo '</form>';
                 } else {
                         if ($_SESSION['lang']==="eng") {
@@ -768,13 +768,13 @@ class User_Function{
                 echo '<h2>'.tr::trans('new_text').'</h2>';
 
 
-                echo '<form action="/user/New_News_Update/'.$res['id'].'" method="POST"  enctype="multipart/form-data">';
+                echo '<form action="/user/New_News_Update/'.$res['id'].'" method="POST" onsubmit="return typeFile()"  enctype="multipart/form-data">';
                 echo '<br><br><b>'.tr::trans('header').'</b><br>';
-                echo '<input type="text" id="News_zagol1" name="News_zagol1" value="'.$res['Nazv'].'" size="40"><br><br>';
+                echo '<input type="text" id="News_zagol1" name="News_zagol1" value="'.$res['Nazv'].'" size="40" required><br><br>';
                 echo '<b>'.tr::trans('body_news').'</b><br>';
                 echo '<textarea style="border:1px solid silver;" id="News_Text1" name="News_Text1" class="tinymce" rows="10" cols="85" name="text">'.$res['Texts'].'</textarea><br><br>';
                 echo '<img height="300px" width="600px" src="'.$res['Photos'].'"><br><br>';
-                echo '<input type="file" name="filename_update1"><br><br>';
+                echo '<input type="file" id="fileDownload" accept="image/jpeg,image/png" name="filename_update1"><br><br>';
                 echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value='.tr::trans('download_photo').'></form>';
                 echo '</form>';
                 echo '</div>';
@@ -797,12 +797,12 @@ class User_Function{
             echo '<h2>'.tr::trans('new_text').'</h2>';
 
 
-            echo '<form action="/user/New_News_Add" method="POST"  enctype="multipart/form-data">';
+            echo '<form action="/user/New_News_Add" method="POST" onsubmit="return typeFile()"  enctype="multipart/form-data">';
             echo '<br><br><b>'.tr::trans('header').'</b><br>';
-            echo '<input type="text" id="News_zagol" name="News_zagol" size="40"><br><br>';
+            echo '<input type="text" id="News_zagol" name="News_zagol" size="40" required><br><br>';
             echo '<b>'.tr::trans('body_news').'</b><br>';
             echo '<textarea style="border:1px solid silver;" id="News_Text" name="News_Text" class="tinymce" rows="10" cols="85" name="text"></textarea><br><br>';
-            echo '<input type="file" name="filename"><br><br>';
+            echo '<input type="file"  id="fileDownload" accept="image/jpeg,image/png" name="filename"><br><br>';
             echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value='.tr::trans('download_photo').'></form>';
             echo '</form>';
             echo '</div>';
@@ -897,20 +897,20 @@ class User_Function{
 
 
 
-                echo '<form action="/user/New_Material_Update/'.$res['id'].'" method="POST"  enctype="multipart/form-data">';
+                echo '<form action="/user/New_Material_Update/'.$res['id'].'" method="POST" onsubmit="return typeFile()"  enctype="multipart/form-data">';
                 echo '<br><b>'.tr::trans('Title').'</b><br>';
 
                 if ($_SESSION['lang']==="eng") {
-                    echo '<input value="'.$res['NazvEN'].'" type="text" id="Material_nazv" name="Material_nazv" size="40">';
+                    echo '<input value="'.$res['NazvEN'].'" type="text" id="Material_nazv" name="Material_nazv" size="40" required >';
                 } else {
-                    echo '<input value="'.$res['Nazv'].'" type="text" id="Material_nazv" name="Material_nazv" size="40">';
+                    echo '<input value="'.$res['Nazv'].'" type="text" id="Material_nazv" name="Material_nazv" size="40" required>';
                 }
 
                 echo '<br><br><b>'.tr::trans('in_stock').'</b><br>';
-                echo '<input value="'.$res['Nalich'].'" type="text" id="Material_nalich" name="Material_nalich" size="40">';
+                echo ($res['Nalich'] === '+') ? '<input  checked class="checkboxAdd" type="checkbox" name="Material_nalich" value="value1">' : '<input class="checkboxAdd" type="checkbox" name="Material_nalich" value="value1">';
 
                 echo '<br><br><b>'.tr::trans('Cost').'</b><br>';
-                echo '<input value="'.$res['Coin'].'" type="text" id="Material_coin" name="Material_coin" size="40">';
+                echo '<input value="'.$res['Coin'].'" type="text" id="Material_coin" name="Material_coin" size="40" required pattern="[0-9]+([\.,][0-9]+)?">';
 
                 echo '<br><br><b>'.tr::trans('Country').'</b><br>';
 
@@ -1000,10 +1000,10 @@ class User_Function{
                 }
 
                 echo '<br><table class="dt" cellspacing="0">';
-                echo '<tr><th>Фото 1 </th><th>Фото 2</th><th>Фото 3</th></tr>';
+                echo '<tr><th>Фото</th></tr>';
 
-                echo '<tr>  <td><input type="file" name="filename_photo1"></td>  <td><input type="file" name="filename_photo2"></td>  <td><input type="file" name="filename_photo3"></td>  </tr>';
-                echo '<tr>  <td><img src="'.$res['Photo1'].'"> <a style="color:red;" href="/user/Delete_Photo1/'.$res['id'].'">X</a></td>              <td><img src="'.$res['Photo2'].'"> <a style="color:red;" href="/user/Delete_Photo2/'.$res['id'].'">X</a></td>                  <td><img src="'.$res['Photo3'].'"> <a style="color:red;" href="/user/Delete_Photo3/'.$res['id'].'">X</a></td>   </tr>';
+                echo '<tr>  <td><input id="fileDownload" type="file" accept="image/jpeg,image/png" name="filename_photo1"></td>   </tr>';
+                echo '<tr>  <td><img src="'.$res['Photo1'].'"> <a style="color:red;" href="/user/Delete_Photo1/'.$res['id'].'">X</a></td>   </tr>';
                 echo '</table><br>';
 
                 echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value='.tr::trans('download_photo').'></form>';
@@ -1027,15 +1027,16 @@ class User_Function{
             echo '<h2>'.tr::trans('new_text').'</h2>';
 
 
-            echo '<form action="/user/New_Material_add" method="POST"  enctype="multipart/form-data">';
+            echo '<form action="/user/New_Material_add" method="POST" onsubmit="return typeFile()"  enctype="multipart/form-data">';
             echo '<br><b>'.tr::trans('Title').'</b><br>';
-            echo '<input type="text" id="Material_nazv" name="Material_nazv" size="40">';
+            echo '<input type="text" id="Material_nazv" name="Material_nazv" size="40" required>';
 
             echo '<br><br><b>'.tr::trans('Availability').'</b><br>';
-            echo '<input type="text" id="Material_nalich" name="Material_nalich" size="40">';
+            echo '<input class="checkboxAdd" type="checkbox" name="Material_nalich" value="value1">';
+
 
             echo '<br><br><b>'.tr::trans('Cost').'</b><br>';
-            echo '<input type="text" id="Material_coin" name="Material_coin" size="40">';
+            echo '<input placeholder="Введите числовое значение" type="text" id="Material_coin" name="Material_coin" size="40" required pattern="[0-9]+([\.,][0-9]+)?">';
 
             echo '<br><br><b>'.tr::trans('Country').'</b><br>';
             echo '<input type="text" id="Material_country" name="Material_country" size="40">';
@@ -1097,7 +1098,7 @@ class User_Function{
             echo '<b>'.tr::trans('Description').'</b><br>';
             echo '<textarea style="border:1px solid silver;" id="Material_opis" name="Material_opis" rows="10" cols="45" name="text"></textarea><br><br>';
 
-            echo '<input type="file" name="filename"><br><br>';
+            echo '<input type="file" id="fileDownload" name="filename" accept="image/jpeg,image/png"><br><br>';
             echo '<input style="padding: 5px 10px;cursor:pointer;border:1px solid silver;" type=submit value='.tr::trans('download_photo').'></form>';
             echo '</form>';
             echo '</div>';

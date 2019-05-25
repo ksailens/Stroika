@@ -828,3 +828,8 @@ tr:last-child td.last {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.checkboxAdd {
+    width: 18px;
+    height: 23px;
+}

@@ -54,7 +54,7 @@
                 </div>
             </div>
             <li><a class="upperCase" href="/user"><? echo tr::trans('personal_cabinet')?></a></li>
-            <li><a class="upperCase" href="/avtoriz"><? echo tr::trans('Authorization')?></a></li>
+            <? echo (!$_SESSION['Login'] ? '<li><a class="upperCase" href="/avtoriz">'.tr::trans('Authorization').'</a></li>' : null)?>
             <li><a class="upperCase" href="/sait_map"><? echo tr::trans('site_map')?></a></li>
         </ul>
 

@@ -89,3 +89,40 @@ function dropToBasket() {
 function dropToBasket_eng() {
 	alert('Item successfully added to basket')
 }
+
+function inputNumberError() {
+	alert('Неверное количество предметов')
+}
+function inputNumberError_eng() {
+	alert('Invalid number of items')
+}
+
+function typeFile() {
+	var fname = document.getElementById("fileDownload").value;
+	var ext = fname.match(/\.([^\.]+)$/)[1];
+	switch (ext) {
+		case 'jpg':
+		case 'bmp':
+		case 'png':
+		case 'tif':
+			return true;
+		default:
+			alert('Неверный тип файла / Invalid file type');
+			return false;
+	}
+}
+function itemNumberChange(id, lang) {
+	var str = 'number'+id;
+	var fvalue = document.getElementById(str).value;
+
+	if (lang === 'eng') {
+		if (fvalue !== '0') {
+			this.dropToBasket_eng()
+		}
+	} else {
+
+		if (fvalue !== '0') {
+			this.dropToBasket()
+		}
+	}
+}

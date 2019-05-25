@@ -20,7 +20,7 @@ class model_user extends Model
     {
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
-            $str="Select *from Login";
+            $str="Select *from Login where Names != 'Admin'";
             $result=$db->prepare($str);
             $result->execute();
             return $result;
@@ -116,7 +116,13 @@ class model_user extends Model
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
             $a1=$_POST['Material_nazv'];
-            $a2=$_POST['Material_nalich'];
+
+            $a2 = null;
+
+
+            $checked = $_POST['Material_nalich'];
+            $checked ? $a2 = '+' : $a2 = '-';
+
             $a3=$_POST['Material_country'];
             $a4=$_POST['Material_colour'];
             $a5=$_POST['Material_material'];
@@ -210,8 +216,10 @@ class model_user extends Model
     {
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
+            $a2 = null;
             $a1=$_POST['Material_nazv'];
-            $a2=$_POST['Material_nalich'];
+            $checked = $_POST['Material_nalich'];
+            $checked ? $a2 = '+' : $a2 = '-';
             $a3=$_POST['Material_country'];
             $a4=$_POST['Material_colour'];
             $a5=$_POST['Material_material'];
