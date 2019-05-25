@@ -9,9 +9,6 @@ class Controller_user extends Controller
             if ($_SESSION['Login']=="Admin") {
                 $this->view->generate('user.php', 'template_view.php',$zapros);
             }
-            elseif ($_SESSION['Login']=="Moder") {
-                $this->view->generate('user.php', 'template_view.php',$zapros);
-            }
             else{
                 header("Location: /user/my_buy");
             }
@@ -44,9 +41,6 @@ class Controller_user extends Controller
         if ($_SESSION['Login']=="Admin") {
             header("Location: /user");
         }
-        elseif ($_SESSION['Login']=="Moder") {
-            header("Location: /user");
-        }
         else{
             header("Location: /avtoriz");
         }
@@ -57,9 +51,6 @@ class Controller_user extends Controller
     function action_delete_news()
     {
         if ($_SESSION['Login']=="Admin") {
-            header("Location: /user/news");
-        }
-        elseif ($_SESSION['Login']=="Moder") {
             header("Location: /user/news");
         }
         else{
@@ -75,9 +66,6 @@ class Controller_user extends Controller
         if ($_SESSION['Login']=="Admin") {
             $this->view->generate('Admin_news.php', 'template_view.php',$zapros);
         }
-        elseif ($_SESSION['Login']=="Moder") {
-            $this->view->generate('Admin_news.php', 'template_view.php',$zapros);
-        }
         else{
             header("Location: /avtoriz");
         }
@@ -86,9 +74,6 @@ class Controller_user extends Controller
     function action_news_add()
     {
         if ($_SESSION['Login']=="Admin") {
-            $this->view->generate('Admin_news_add.php', 'template_view.php');
-        }
-        elseif ($_SESSION['Login']=="Moder") {
             $this->view->generate('Admin_news_add.php', 'template_view.php');
         }
         else{
@@ -100,9 +85,6 @@ class Controller_user extends Controller
     function action_New_News_Add()
     {
         if ($_SESSION['Login']=="Admin") {
-            header("Location: /user/news");
-        }
-        elseif ($_SESSION['Login']=="Moder") {
             header("Location: /user/news");
         }
         else{
@@ -163,9 +145,6 @@ class Controller_user extends Controller
         if ($_SESSION['Login']=="Admin") {
             $this->view->generate('Admin_news_correct.php', 'template_view.php',$zapros);
         }
-        elseif ($_SESSION['Login']=="Moder") {
-            $this->view->generate('Admin_news_correct.php', 'template_view.php',$zapros);
-        }
         else{
             header("Location: /avtoriz");
         }
@@ -175,9 +154,6 @@ class Controller_user extends Controller
     function action_New_News_Update()
     {
         if ($_SESSION['Login']=="Admin") {
-            header("Location: /user/news");
-        }
-        elseif ($_SESSION['Login']=="Moder") {
             header("Location: /user/news");
         }
         else{

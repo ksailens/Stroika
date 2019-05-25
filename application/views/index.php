@@ -10,7 +10,15 @@
 
 <div class="Content_block">
     <ul class="Content_block_IndexNews">
-        <div class="NewsHeader">Последние новости</div>
+        <?
+        if ($_SESSION['lang']==="eng") {
+            echo '<div class="NewsHeader">Last News</div>';
+        } else {
+            echo '<div class="NewsHeader">Последние новости</div>';
+
+        }
+        ?>
+
         <?php
         User_Function::IndexNews();
         ?>

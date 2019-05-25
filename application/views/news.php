@@ -1,5 +1,5 @@
 <div class="News_block">
-<h2>НОВОСТИ И АКЦИИ</h2>
+<h2 class="upperCase"><? echo tr::trans('news')?></h2>
 
 
 

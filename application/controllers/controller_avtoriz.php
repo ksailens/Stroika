@@ -5,7 +5,7 @@ class Controller_avtoriz extends Controller
 
 	function action_index()
 	{	
-		$this->view->generate('avtoriz.php', 'template_view.php');	
+		$this->view->generate('avtoriz.php', 'template_view.php');
 	}
 
 

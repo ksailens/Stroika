@@ -41,31 +41,33 @@
         <ul class="Emblem">
             <a href="/index">
 
-                <li style="color:#f1f558; text-shadow: black 0 0 10px;">СЕВ</li>
-                <li style="color:white;">СТРОЙ</li>
+                <li class="upperCase" style="color:#f1f558; text-shadow: black 0 0 10px;"><? echo tr::trans('logo1')?></li>
+                <li class="upperCase" style="color:white;"><? echo tr::trans('logo2')?></li>
             </a>
         </ul>
 
         <ul class="Top_content_menu">
-            <li><a href="/user">ЛИЧНЫЙ КАБИНЕТ</a></li>
-            <li><a href="/avtoriz">АВТОРИЗАЦИЯ</a></li>
-            <li><a href="/sait_map">КАРТА САЙТА</a></li>
+            <li><a class="upperCase" href="/index/rus"><? echo tr::trans('russian')?></a></li>
+            <li><a class="upperCase" href="/index/english"><? echo tr::trans('english')?></a></li>
+            <li><a class="upperCase" href="/user"><? echo tr::trans('personal_cabinet')?></a></li>
+            <li><a class="upperCase" href="/avtoriz"><? echo tr::trans('Authorization')?></a></li>
+            <li><a class="upperCase" href="/sait_map"><? echo tr::trans('site_map')?></a></li>
         </ul>
 
     </div>
     <ul class="Main_Menu">
-        <li><a href="/index">ГЛАВНАЯ СТРАНИЦА</a></li>
-        <li><a href="/news">НОВОСТИ И АКЦИИ</a></li>
-        <li><a href="/tovar">КАТАЛОГ НАШЕЙ ПРОДУКЦИИ</a></li>
-        <li><a href="/kont">СВЯЖИТЕСЬ С НАМИ</a></li>
-        <li><a href="/map">СХЕМА ПРОЕЗДА</a></li>
+        <li><a class="upperCase" href="/index"><? echo tr::trans('main')?></a></li>
+        <li><a class="upperCase" href="/news"><? echo tr::trans('news')?></a></li>
+        <li><a class="upperCase" href="/tovar"><? echo tr::trans('our_catalog')?></a></li>
+        <li><a class="upperCase" href="/kont"><? echo tr::trans('tell_us')?></a></li>
+        <li><a class="upperCase" href="/map"><? echo tr::trans('scheme_road')?></a></li>
 
         <?php
         if (isset($_SESSION['Login'])) {
-            echo "<p class='avtor'>Добро пожаловать, <span>".$_SESSION['Login']."</span>! <a style='color:silver;' href='/avtoriz/logout'>Выход</a></p>";
+            echo "<p class='avtor'>".tr::trans('welcome').", <span>".$_SESSION['Login']."</span>! <a style='color:silver;' href='/avtoriz/logout'>".tr::trans('exit')."</a></p>";
         }
         else{
-            echo "<p class='avtor'>Добро пожаловать, <span>Гость</span>!</p>";
+            echo "<p class='avtor'>".tr::trans('welcome').", <span>".tr::trans('guest')."</span>!</p>";
         }
         ?>
 
@@ -82,10 +84,10 @@
 
 
     <footer>
-        <p>ОНЛАЙН МАГАЗИН СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ</p>
-        <p>ПОД ЗАКАЗ</p>
-        <p>ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
-        <p> GRIDI&#169; </p>
+        <p class="upperCase"><? echo tr::trans('footer1')?></p>
+        <p class="upperCase"><? echo tr::trans('footer2')?></p>
+        <p class="upperCase"><? echo tr::trans('footer3')?></p>
+        <p> GRIDI&#169; 2019</p>
         <p></p>
     </footer>
 </div>

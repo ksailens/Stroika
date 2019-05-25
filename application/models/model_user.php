@@ -12,13 +12,6 @@ class model_user extends Model
             $result->execute();
             return $result;
         }
-        elseif ($_SESSION["Login"]=="Moder") {
-            $db=Db::getConnection();
-            $str="Select *from Login";
-            $result=$db->prepare($str);
-            $result->execute();
-            return $result;
-        }
 
     }
 
@@ -26,13 +19,6 @@ class model_user extends Model
     function action_all()
     {
         if ($_SESSION["Login"]=="Admin") {
-            $db=Db::getConnection();
-            $str="Select *from Login";
-            $result=$db->prepare($str);
-            $result->execute();
-            return $result;
-        }
-        elseif ($_SESSION["Login"]=="Moder") {
             $db=Db::getConnection();
             $str="Select *from Login";
             $result=$db->prepare($str);
@@ -62,11 +48,6 @@ class model_user extends Model
             $str="DELETE FROM `News` WHERE id='".$num."'";
             $result=$db->query($str);
         }
-        elseif ($_SESSION["Login"]=="Moder") {
-            $db=Db::getConnection();
-            $str="DELETE FROM `News` WHERE id='".$num."'";
-            $result=$db->query($str);
-        }
 
     }
 
@@ -76,13 +57,6 @@ class model_user extends Model
     function action_news()
     {
         if ($_SESSION["Login"]=="Admin") {
-            $db=Db::getConnection();
-            $str="Select *from News ORDER BY Datas DESC";
-            $result=$db->prepare($str);
-            $result->execute();
-            return $result;
-        }
-        elseif ($_SESSION["Login"]=="Moder") {
             $db=Db::getConnection();
             $str="Select *from News ORDER BY Datas DESC";
             $result=$db->prepare($str);
@@ -101,26 +75,6 @@ class model_user extends Model
     function action_New_News_Add()
     {
         if ($_SESSION["Login"]=="Admin") {
-            $db=Db::getConnection();
-            $a1=$_POST['News_zagol'];
-            $a2=$_POST['News_Text'];
-            $a3=$_SESSION['Login'];
-
-            $uploaddir = './photo/news/';
-            $uploaddir2 = '/photo/news/';
-            $uploadfile = $uploaddir . basename($_FILES['filename']['name']);
-            $uploadfile2 = $uploaddir2 . basename($_FILES['filename']['name']);
-
-            if (!empty($_FILES['filename']['name'])) {
-                copy($_FILES['filename']['tmp_name'], $uploadfile);
-            }
-            $str1="INSERT INTO `News`(`Nazv`, `Texts`, `Users`, `Photos`)
-		VALUES (";
-            $str2="'".$a1."','".$a2."','".$a3."','".$uploadfile2."')";
-            $str3=$str1.$str2;
-            $result=$db->query($str3);
-        }
-        elseif ($_SESSION["Login"]=="Moder") {
             $db=Db::getConnection();
             $a1=$_POST['News_zagol'];
             $a2=$_POST['News_Text'];
@@ -208,42 +162,12 @@ class model_user extends Model
             $result->execute();
             return $result;
         }
-        elseif ($_SESSION["Login"]=="Moder") {
-            $db=Db::getConnection();
-            $str="Select *from News where id='".$num."'";
-            $result=$db->prepare($str);
-            $result->execute();
-            return $result;
-        }
     }
 
 
     function action_New_News_Update($num)
     {
         if ($_SESSION["Login"]=="Admin") {
-            $db=Db::getConnection();
-            $a1=$_POST['News_zagol1'];
-            $a2=$_POST['News_Text1'];
-            $a3=$_SESSION['Login'];
-
-
-
-            $uploaddir = './photo/news/';
-            $uploaddir2 = '/photo/news/';
-            $uploadfile = $uploaddir . basename($_FILES['filename_update1']['name']);
-            $uploadfile2 = $uploaddir2 . basename($_FILES['filename_update1']['name']);
-
-            if (!empty($_FILES['filename_update1']['name'])) {
-                copy($_FILES['filename_update1']['tmp_name'], $uploadfile);
-                $str='UPDATE `News` SET `Nazv`="'.$a1.'",`Texts`="'.$a2.'",`Photos`="'.$uploadfile2.'" WHERE id='.$num;
-            }
-            else{
-                $str='UPDATE `News` SET `Nazv`="'.$a1.'",`Texts`="'.$a2.'" WHERE id='.$num;
-            }
-            $result=$db->query($str);
-        }
-
-        elseif ($_SESSION["Login"]=="Moder") {
             $db=Db::getConnection();
             $a1=$_POST['News_zagol1'];
             $a2=$_POST['News_Text1'];

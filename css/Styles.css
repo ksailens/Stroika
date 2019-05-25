@@ -191,6 +191,7 @@ footer{
     position: relative;
     margin: 0 auto;
     width: 1200px;
+    margin-top: 10px;
     /*min-height: 500px;*/
 }
 
@@ -757,4 +758,8 @@ tr:last-child td.last {
     font-size: 20px;
     margin-top: 40px;
     text-decoration: underline;
+}
+
+.upperCase {
+    text-transform: uppercase;
 }

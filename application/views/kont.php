@@ -1,8 +1,8 @@
 <div class="News_block">
-    <h2>КОНТАКТЫ</h2><br>
-    <p>Контактное лицо: Герцовская Карина Владиславовна</p>
-    <p>Телефон: +79780225274</p>
+    <h2 class="upperCase"><? echo tr::trans('Contacts')?></h2><br>
+    <p><? echo tr::trans('person')?>: <? echo tr::trans('fio')?></p>
+    <p><? echo tr::trans('tel')?>: +79780225274</p>
     <p>Email: lin8ro@gmail.com</p>
-    <p>Тех.поддержка: +79780225274</p>
-    <p>Адрес: г.Севастополь, ул. Университетская, 33.</p>
+    <p><? echo tr::trans('support')?>: +79780225274</p>
+    <p><? echo tr::trans('Address')?>: <? echo tr::trans('Address_full')?></p>
 </div>

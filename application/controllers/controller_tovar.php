@@ -5,7 +5,7 @@ class Controller_tovar extends Controller
 
 	function action_index($rezult)
 	{	
-	$this->view->generate('tovar.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar.php', 'template_view.php',$rezult);
 	}
 
 	function action_info($rezult)
@@ -15,32 +15,32 @@ class Controller_tovar extends Controller
 
 	function action_instruments($rezult)
 	{	
-	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
 	}
 
 	function action_buildMat($rezult)
 	{	
-	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
 	}
 
 	function action_decorMat($rezult)
 	{	
-	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
 	}
 
 	function action_fasteners($rezult)
 	{	
-	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
 	}
 
 	function action_lumber($rezult)
 	{	
-	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
 	}
 
 	function action_other($rezult)
 	{	
-	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);	
+	$this->view->generate('tovar_kind.php', 'template_view.php',$rezult);
 	}
 
     /*Функции для многоуровней иерархии */
