@@ -30,7 +30,6 @@
         });
 
     </script>
-
 </head>
 
 <body>
@@ -47,8 +46,13 @@
         </ul>
 
         <ul class="Top_content_menu">
-            <li><a class="upperCase" href="/index/rus"><? echo tr::trans('russian')?></a></li>
-            <li><a class="upperCase" href="/index/english"><? echo tr::trans('english')?></a></li>
+            <div class="dropdown">
+                <div <?  echo ($_SESSION['lang']==='eng') ? 'style="background-image:url(/photo/en_flag.png);"' : 'style="background-image:url(/photo/ru_flag.png);"' ?> class="dropbtn"><?  echo ($_SESSION['lang']==='eng') ? 'EN' : 'RU' ?></div>
+                <div style="" class="dropdown-content">
+                    <a href="/index/rus">RU</a>
+                    <a href="/index/english">EN</a>
+                </div>
+            </div>
             <li><a class="upperCase" href="/user"><? echo tr::trans('personal_cabinet')?></a></li>
             <li><a class="upperCase" href="/avtoriz"><? echo tr::trans('Authorization')?></a></li>
             <li><a class="upperCase" href="/sait_map"><? echo tr::trans('site_map')?></a></li>

@@ -216,7 +216,6 @@ class model_user extends Model
             $a4=$_POST['Material_colour'];
             $a5=$_POST['Material_material'];
             $a6=$_POST['Material_opis'];
-            $a7=$_SESSION['Login'];
             $a8=$_POST['Material_korpus'];
             $a9=$_POST['Material_coin'];
             $a10=$_POST['Material_Subtype'];
@@ -249,7 +248,7 @@ class model_user extends Model
                 $result=$db->query($str);
             }
 
-            $str='UPDATE `Catalog` SET `Nazv`="'.$a1.'",`Nalich`="'.$a2.'" ,`Country`="'.$a3.'" ,`Colour`="'.$a4.'" ,`Material`="'.$a5.'" ,`Texts`="'.$a6.'" ,`Users`="'.$a7.'" ,`Type`="'.$a8.'" ,`Coin`="'.$a9.'",`Subtype`="'.$a10.'" WHERE id='.$num;
+            $str='UPDATE `Catalog` SET `Nazv`="'.$a1.'",`Nalich`="'.$a2.'" ,`Country`="'.$a3.'" ,`Colour`="'.$a4.'" ,`Material`="'.$a5.'" ,`Texts`="'.$a6.'"  ,`Type`="'.$a8.'" ,`Coin`="'.$a9.'",`Subtype`="'.$a10.'" WHERE id='.$num;
             $result=$db->query($str);
         }
 

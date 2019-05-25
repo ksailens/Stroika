@@ -125,8 +125,8 @@ class tr{
             'footer1' => 'Online store building materials',
             'footer2' => 'Under the order',
             'footer3' => 'All rights reserved',
-            'logo1' => 'Sev',
-            'logo2' => 'Build',
+            'logo1' => 'Building',
+            'logo2' => 'Standard',
         );
 
 
@@ -257,8 +257,8 @@ class tr{
             'footer1' => 'Онлайн магазин строительных материалов',
             'footer2' => 'Под заказ',
             'footer3' => 'Все права защищены',
-            'logo1' => 'Сев',
-            'logo2' => 'Строй',
+            'logo1' => 'Строй',
+            'logo2' => 'Стандарт',
 
 
         );
