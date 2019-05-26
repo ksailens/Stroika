@@ -7,7 +7,7 @@ class model_user extends Model
     {
         if ($_SESSION["Login"]=="Admin") {
             $db=Db::getConnection();
-            $str="Select *from Login";
+            $str="Select *from Login where Names != 'Admin'";
             $result=$db->prepare($str);
             $result->execute();
             return $result;
