@@ -39,9 +39,19 @@ class model_registration extends Model
             $_SESSION['Email']=$a3;
             $_SESSION['Tel']=$a4;
             $_SESSION['LoginSystem']='system_registr';
+            $_SESSION['codeUserName']=base64_encode($a1);
 
             $str="INSERT INTO `Login`(`Names`, `Pass`, `Emails`, `Tels`) VALUES ('".$a1."','".$a2."','".$a3."','".$a4."')";
             $result=$db->query($str);
+
+
+            $db1=Db::getConnection();
+            $str1="Select *from Login where Names='".$a1."' and Pass='".$a2."'";
+            $result1=$db1->prepare($str1);
+            $result1->execute();
+            $res1=$result1->fetch(PDO::FETCH_BOTH);
+            $_SESSION['userId']=$res1['id'];
+
         }
 
     }
