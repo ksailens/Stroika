@@ -9,13 +9,11 @@ class Controller_index extends Controller
 	}
 
 	function action_rus()
-	{	
-	header("Location: /index");
+	{	header("Location: ".$_SERVER["HTTP_REFERER"]);
 	}
 
 	function action_english()
-	{	
-	header("Location: /index");
+	{	header("Location: ".$_SERVER["HTTP_REFERER"]);
 	}
 
 }

@@ -410,7 +410,6 @@ class User_Function{
 
     public static function Index($data){
         require_once 'application/config/Db.php';
-
         $db=Db::getConnection();
         $str="Select *from Catalog where Type=1 limit 3";
         $result=$db->prepare($str);
@@ -676,7 +675,7 @@ class User_Function{
             $result->execute();
 
             echo '<div class="Content_block_Tovar Content_block_Noleft">';
-            echo '<div class="Info upperCase">'.tr::trans('rec_add').'</div>';
+            echo '<div class="Info upperCase">'.tr::trans('recomend').'</div>';
             while ($res = $result->fetch(PDO::FETCH_BOTH)) {
                 echo '<li>';
                 echo '<img src="' . $res['Photo1'] . '">	';

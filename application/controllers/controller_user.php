@@ -263,8 +263,9 @@ class Controller_user extends Controller
 
     function action_drop_basket($num)
     {
+//        $str2 = ''.$_SERVER["HTTP_REFERER"].'';
         if (isset($_SESSION['Login'])) {
-            header("Location: /index");
+            header("Location: ".$_SERVER["HTTP_REFERER"]);
         }
         else{
             header("Location: /avtoriz");
